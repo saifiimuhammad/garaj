@@ -356,9 +356,9 @@ nav a {
 }
 
 .contact-btn {
-  background-color: white;
+  background-color: white !important;
   border-radius: 999px;
-  padding: 0.5rem 1.5rem;
+  padding: 0.3rem 1.25rem;
   display: flex;
   align-items: center;
   gap: 0.25rem;
@@ -397,8 +397,10 @@ nav a {
 }
 
 .mobile-menu .contact-btn {
-  background-color: #f59e0b;
+  background-color: #f59e0b !important;
   color: white;
+  padding: 0.5rem 1.5rem;
+
   width: fit-content;
 }
 
@@ -428,18 +430,18 @@ canvas {
   z-index: -1;
   inset: 0;
   height: 85vh;
-  clip-path: polygon(0 0, 100% 0, 100% 50%, 0% 70%);
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0% 90%);
 }
 #gradient-canvas {
   --gradient-color-1: #3db0a0;
   --gradient-color-2: #d45d51;
-  --gradient-color-3: #ffbd8a;
-  --gradient-color-4: #f1991d;
+  --gradient-color-3: #ffa057;
+  --gradient-color-4: #e63946;
 }
 
 @media (min-width: 1024px) {
   .canvas-container {
-    height: 90vh;
+    height: 75vh;
     clip-path: polygon(0 0, 100% 0, 100% 40%, 0% 85%);
   }
 }
@@ -463,7 +465,7 @@ canvas {
 
 @media (min-width: 1024px) {
   .hero {
-    padding: 10rem 8rem 6rem;
+    padding: 15rem 8rem 6rem;
     min-height: 90vh;
     align-items: center;
   }
@@ -473,7 +475,7 @@ canvas {
   text-align: center;
   width: 100%;
   max-width: 100%;
-  margin-top: 5rem;
+  margin-top: 0;
 }
 
 @media (min-width: 1024px) {
@@ -534,11 +536,11 @@ canvas {
 
 @media (min-width: 1200px) {
   .hero-content h1 {
-    font-size: 5rem;
+    font-size: 3.75rem;
   }
 
   .hero-content h2 {
-    font-size: 5rem;
+    font-size: 3.75rem;
   }
 }
 
@@ -561,23 +563,23 @@ canvas {
 @media (min-width: 1024px) {
   .hero-content p {
     margin-top: 3rem;
-    max-width: 100%;
+    max-width: 85%;
     margin-left: 0;
     margin-right: 0;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
   }
 }
 
 .hero-content button {
   margin-top: 2rem;
-  padding: 0.95rem 2rem;
+  padding: 0.75rem 2rem;
   background-color: #f59e0b;
   color: black;
   font-size: 1rem;
   font-weight: 500;
+  border: none;
   border-radius: 999px;
   cursor: pointer;
-  border: 2px solid transparent;
 }
 
 @media (min-width: 640px) {
@@ -595,7 +597,7 @@ canvas {
 .hero-img {
   margin-top: 3rem;
   position: relative;
-  right: -2rem;
+  left: 0;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -718,8 +720,9 @@ canvas {
 
 .card {
   padding: 1.5rem; /* p-6 */
-  border-radius: 0.75rem; /* rounded-xl */
-  box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem; /* rounded-xl */
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  /* box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.1); */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -768,7 +771,6 @@ canvas {
   font-size: 0.875rem;
   color: var(--gray-700);
   margin-top: 1rem;
-  line-height: 1.35rem;
 }
 
 @media (min-width: 640px) {
@@ -1692,6 +1694,7 @@ canvas {
   position: absolute;
   top: 0;
   left: 0;
+  transition: opacity 0.3s ease;
 }
 
 .icon-colored {
@@ -1699,6 +1702,16 @@ canvas {
   position: absolute;
   top: 0;
   left: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Active state for hover groups */
+.icon-outlined.active .icon-default {
+  opacity: 0;
+}
+
+.icon-outlined.active .icon-colored {
+  opacity: 1;
 }
 
 /* Second animation */

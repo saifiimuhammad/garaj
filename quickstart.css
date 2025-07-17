@@ -1,0 +1,223 @@
+.quickstart-section {
+  padding-block: 5rem;
+  position: relative;
+}
+
+.quickstart-content {
+  padding-inline: 1.5rem;
+
+  text-align: center;
+}
+
+.quickstart-title {
+  font-size: 2rem;
+  letter-spacing: -1.23px;
+}
+
+.quickstart-desc {
+  margin-top: 1.15rem;
+  font-size: 1rem;
+}
+
+.quickstart-btn {
+  margin-top: 1.5rem;
+  padding: 0.6rem 1.5rem;
+  background-color: #f59e0b;
+  color: black;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 999px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.quickstart-image {
+  display: none;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.quickstart-points-container {
+  margin-top: 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  padding-inline: 1.5rem;
+}
+
+.quickstart-point {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.point-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.point-desc {
+  margin-top: 1.5rem;
+}
+
+.quickstart-2,
+.quickstart-3 {
+  position: static;
+}
+
+/* Tablet */
+@media (min-width: 640px) {
+  .quickstart-content {
+    padding-inline: 3rem;
+  }
+
+  .quickstart-title {
+    font-size: 2.5rem;
+  }
+
+  .quickstart-desc {
+    font-size: 1.2rem;
+  }
+
+  .quickstart-btn {
+    font-size: 1.1rem;
+  }
+
+  .quickstart-points-container {
+    flex-direction: column;
+    padding-inline: 3rem;
+  }
+
+  .quickstart-point {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .quickstart-section {
+    padding-block: 10rem;
+  }
+
+  .quickstart-content {
+    position: absolute;
+    padding-inline: 9rem;
+    text-align: left;
+  }
+
+  .quickstart-title {
+    font-size: 3rem;
+  }
+
+  .quickstart-desc {
+    font-size: 1.37rem;
+  }
+
+  .quickstart-btn {
+    font-size: 1.15rem;
+  }
+
+  .quickstart-image {
+    display: block;
+  }
+
+  .quickstart-points-container {
+    margin-top: 0;
+    flex-direction: row;
+    padding-inline: 6rem;
+    justify-content: space-between;
+    gap: 0;
+    width: 100%;
+    max-width: 2500px;
+  }
+
+  .quickstart-2 {
+    position: relative;
+    bottom: 14rem;
+  }
+
+  .quickstart-3 {
+    position: relative;
+    bottom: 23rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .quickstart-points-container {
+    padding: 2rem;
+  }
+  .quickstart-2 {
+    bottom: 10rem;
+  }
+  .quickstart-3 {
+    bottom: 18rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .quickstart-points-container {
+    padding: 2rem;
+  }
+  .quickstart-2 {
+    bottom: 12rem;
+  }
+  .quickstart-3 {
+    bottom: 22rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .quickstart-points-container {
+    padding: 2rem;
+  }
+  .quickstart-2 {
+    bottom: 16rem;
+  }
+  .quickstart-3 {
+    bottom: 26rem;
+  }
+}
+
+@media (min-width: 1560px) {
+  .quickstart-2 {
+    bottom: 16rem;
+  }
+  .quickstart-3 {
+    bottom: 26rem;
+  }
+}
+
+@media (min-width: 1660px) {
+  .quickstart-2 {
+    bottom: 16rem;
+  }
+  .quickstart-3 {
+    bottom: 28rem;
+  }
+}
+
+@media (min-width: 1800px) {
+  .quickstart-2 {
+    bottom: 18rem;
+  }
+  .quickstart-3 {
+    bottom: 30rem;
+    right: 4rem;
+  }
+}
+
+@media (min-width: 2400px) {
+  .quickstart-2 {
+    bottom: 24rem;
+    right: 4rem;
+  }
+  .quickstart-3 {
+    bottom: 40rem;
+    right: 14rem;
+  }
+}

@@ -148,19 +148,28 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Intersection Observer
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        startFourthAnimation();
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { 
-    threshold: 0.2,
-    rootMargin: '0px 0px -50px 0px'
-  });
 
-  const fourthContainer = document.querySelector('.fourth-animation-container');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (!animationStarted) {
+            startFourthAnimation();
+            animationStarted = true;
+          }
+        } else {
+          // Allow it to run again next time
+          animationStarted = false;
+        }
+      });
+    },
+    {
+      threshold: 0.2,
+      rootMargin: "0px 0px -50px 0px",
+    }
+  );
+
+  const fourthContainer = document.querySelector(".fourth-animation-container");
   if (fourthContainer) {
     observer.observe(fourthContainer);
   }
