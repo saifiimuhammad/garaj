@@ -83,7 +83,11 @@
     <!-- Hero Section -->
     <section class="hero">
       <div class="canvas-container">
-        <canvas canvas id="canv" width="32" height="32"> ></canvas>
+        <!-- <canvas canvas id="canv" width="32" height="32"> ></canvas> -->
+        <canvas
+          id="gradient-canvas"
+          style="width: 100vw; height: 100vh"
+        ></canvas>
       </div>
       <div class="hero-content">
         <h1 class="gothic">Cloud Made Simple</h1>
@@ -472,6 +476,7 @@
           </div>
           <div class="second-main">
             <svg
+              id="second-line-1"
               viewBox="0 0 145 74"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -484,11 +489,11 @@
               />
             </svg>
             <svg
+              id="second-line-2"
               viewBox="0 0 145 74"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               class="side-line second-svg-side"
-              style="transform: scaleY(-1); top: 29rem"
             >
               <path
                 d="M2.30469 73.7969V2.79688H144.305"
@@ -497,11 +502,11 @@
               />
             </svg>
             <svg
+              id="second-line-3"
               viewBox="0 0 145 74"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               class="side-line second-svg-side"
-              style="transform: scaleX(-1); left: 22rem; top: 13.78rem"
             >
               <path
                 d="M2.30469 73.7969V2.79688H144.305"
@@ -510,11 +515,11 @@
               />
             </svg>
             <svg
+              id="second-line-4"
               viewBox="0 0 145 74"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
               class="side-line second-svg-side"
-              style="transform: scaleX(-1); left: 22rem; top: 30rem"
             >
               <path
                 d="M2.30469 73.7969V2.79688H144.305"
@@ -1167,5 +1172,9 @@
     <script src="./animations/secondAnimation.js"></script>
     <script src="./animations/thirdAnimation.js"></script>
     <script src="./animations/fourthAnimation.js"></script>
+    <script>
+      var gradient = new Gradient();
+      gradient.initGradient("#gradient-canvas");
+    </script>
   </body>
 </html>
