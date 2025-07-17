@@ -700,7 +700,7 @@ canvas {
 .card-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 2rem; /* gap-8 */
+  gap: 3rem; /* gap-8 */
   margin-top: 2.5rem; /* mt-10 */
 }
 
@@ -718,7 +718,7 @@ canvas {
 
 .card {
   padding: 1.5rem; /* p-6 */
-  border-radius: 0.75rem; /* rounded-xl */
+  border-radius: 2rem; /* rounded-xl */
   box-shadow: 1px 1px 8px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
@@ -783,10 +783,10 @@ canvas {
   gap: 0.5rem;
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--amber-500);
+  color: black;
   background: none;
   border: none;
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   cursor: pointer;
 }
 
@@ -1287,10 +1287,33 @@ canvas {
 
 .partners-container {
   margin-top: 2.5rem;
-  display: flex;
+  margin-inline: 2rem;
+  display: grid;
   align-items: center;
-  gap: 2rem;
-  overflow-x: auto;
+  gap: 6rem 4rem;
+  grid-template-columns: repeat(4, 1fr);
+  place-items: center;
+}
+
+@media (max-width: 1024px) {
+  .partners-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .partners-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .partners-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    margin-inline: 1rem;
+  }
 }
 
 .partners-container img {

@@ -1,85 +1,112 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const FirstAnimations = () => {
-    const elements = document.querySelectorAll(".icon-outlined");
+const FirstAnimations = () => {
+  const elements = document.querySelectorAll(".first-boxes");
 
-    gsap.fromTo(
-      elements,
-      {
-        opacity: 0,
-        scale: 0,
-      },
-      {
-        opacity: 1,
-        scale: 1,
-        delay: 0.5,
-        stagger: 0.04,
-      }
-    );
-
-    gsap.to(".svg-pipeline", {
+  // Initial fade-in animation
+  gsap.fromTo(
+    elements,
+    {
+      opacity: 0,
+      scale: 0,
+    },
+    {
       opacity: 1,
-      delay: 1,
-      duration: 2,
-    });
+      scale: 1,
+      delay: 0.5,
+      stagger: 0.04,
+      duration: 0.6,
+      ease: "back.out(1.7)",
+    }
+  );
 
-    elements.forEach((elem) => {
-      const [iconDefault, iconColored] = elem.querySelectorAll("img");
+  gsap.to(".svg-pipeline", {
+    opacity: 1,
+    delay: 1,
+    duration: 2,
+  });
 
-      const onHover = () => {
-        gsap.to(iconDefault, {
+  elements.forEach((elem) => {
+    const [iconDefault, iconColored] = elem.querySelectorAll("img");
+
+    const getRandomElements = (excludeElem, count = 2) => {
+      const others = [...elements].filter((el) => el !== excludeElem);
+      const shuffled = others.sort(() => 0.5 - Math.random());
+      return shuffled.slice(0, count);
+    };
+
+    const onHover = () => {
+      const randomBoxes = getRandomElements(elem, 2);
+      const allBoxes = [elem, ...randomBoxes];
+
+      allBoxes.forEach((box) => {
+        const [iconDef, iconCol] = box.querySelectorAll("img");
+
+        gsap.to(iconDef, {
           opacity: 0,
-          scale: 0.96,
+          scale: 0.95,
+          duration: 0.3,
+          ease: "power2.out",
         });
 
-        gsap.to(iconColored, {
+        gsap.to(iconCol, {
           opacity: 1,
           scale: 1.05,
+          duration: 0.3,
+          ease: "power2.out",
         });
 
-        gsap.fromTo(
-          elem,
-          {
-            backgroundColor: "#f6f9fd",
-            scale: 1,
-          },
-          {
-            scale: 1.05,
-            backgroundColor: "white",
-            boxShadow: "0px 3px 10px 1px #d0d8e2",
-            border: "1px solid transparent",
-          }
-        );
-      };
+        gsap.to(box, {
+          scale: 1.05,
+          backgroundColor: "white",
+          boxShadow: "0px 3px 10px 1px #d0d8e2",
+          border: "1px solid transparent",
+          duration: 0.4,
+          ease: "power2.out",
+        });
+      });
 
-      const onHoverOut = () => {
-        gsap.to(iconDefault, {
+      elem._randomBoxes = randomBoxes;
+    };
+
+    const onHoverOut = () => {
+      const randomBoxes = elem._randomBoxes || [];
+      const allBoxes = [elem, ...randomBoxes];
+
+      allBoxes.forEach((box) => {
+        const [iconDef, iconCol] = box.querySelectorAll("img");
+
+        gsap.to(iconDef, {
           opacity: 1,
           scale: 1,
+          duration: 0.3,
+          ease: "power2.inOut",
         });
-        gsap.to(iconColored, {
+
+        gsap.to(iconCol, {
           opacity: 0,
           scale: 1,
+          duration: 0.3,
+          ease: "power2.inOut",
         });
-        gsap.fromTo(
-          elem,
-          {
-            scale: 1.05,
-            backgroundColor: "white",
-          },
-          {
-            backgroundColor: "#f6f9fd",
-            scale: 1,
-            boxShadow: "0px 3px 10px 1px transparent",
-            border: "1px solid #e0e0e0",
-          }
-        );
-      };
 
-      elem.addEventListener("mouseenter", onHover);
-      elem.addEventListener("mouseleave", onHoverOut);
-    });
-  };
+        gsap.to(box, {
+          scale: 1,
+          backgroundColor: "#f6f9fd",
+          boxShadow: "0px 3px 10px 1px transparent",
+          border: "1px solid #e0e0e0",
+          duration: 0.4,
+          ease: "power2.inOut",
+        });
+      });
 
+      elem._randomBoxes = null;
+    };
+
+    elem.addEventListener("mouseenter", onHover);
+    elem.addEventListener("mouseleave", onHoverOut);
+  });
+};
+
+document.addEventListener("DOMContentLoaded", () => {
   const paths = [
     { id: "path1", element: null, length: 0 },
     { id: "path2", element: null, length: 0 },

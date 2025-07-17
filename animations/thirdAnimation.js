@@ -20,9 +20,11 @@ const ThirdAnimations = () => {
     images,
     {
       opacity: 0,
+      scale: 0.95,
     },
     {
       opacity: 1,
+      scale: 1,
       delay: 1.5,
       duration: 1,
     }
@@ -37,10 +39,53 @@ const ThirdAnimations = () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   let animationStarted = false;
+  let topPathLoopTimeout;
+  let stopLoop = false;
 
-  function startThirdAnimation() {
-    if (animationStarted) return;
-    animationStarted = true;
+  function resetThirdAnimations() {
+    stopLoop = true;
+    clearTimeout(topPathLoopTimeout);
+
+    const boxes = document.querySelectorAll(".third-boxes");
+    const topPaths = document.querySelectorAll(".third-svg-top path");
+    const mainPath = document.querySelector(".third-svg-main rect");
+
+    if (!boxes.length || !topPaths.length || !mainPath) return;
+
+    const mainLength = mainPath.getTotalLength();
+    const pathLengths = Array.from(topPaths).map((p) => p.getTotalLength());
+
+    topPaths.forEach((p, i) => {
+      gsap.set(p, {
+        strokeDasharray: pathLengths[i],
+        strokeDashoffset: -pathLengths[i],
+      });
+    });
+
+    gsap.set(mainPath, {
+      strokeDasharray: mainLength,
+      strokeDashoffset: mainLength,
+    });
+
+    boxes.forEach((box) => {
+      const defaultIcon = box.querySelector(".icon-outline");
+      const coloredIcon = box.querySelector(".icon-colored");
+
+      gsap.set(box, {
+        scale: 1,
+        backgroundColor: "#f6f9fd",
+        boxShadow: "none",
+        border: "1px solid #ccc",
+        opacity: 1,
+      });
+
+      gsap.set(defaultIcon, { opacity: 1, scale: 1 });
+      gsap.set(coloredIcon, { opacity: 0, scale: 0.9 });
+    });
+  }
+
+  function startFourthAnimation() {
+    stopLoop = false;
 
     const boxes = document.querySelectorAll(".third-boxes");
     const topPaths = document.querySelectorAll(".third-svg-top path");
@@ -54,7 +99,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const mainLength = mainPath.getTotalLength();
     const pathLengths = Array.from(topPaths).map((p) => p.getTotalLength());
 
-    // Initialize styles
     topPaths.forEach((p, i) => {
       gsap.set(p, {
         strokeDasharray: pathLengths[i],
@@ -67,10 +111,8 @@ document.addEventListener("DOMContentLoaded", () => {
       strokeDashoffset: mainLength,
     });
 
-    // Start animations
     ThirdAnimations();
 
-    // Step 1: Initial box1 and main animation
     const intro = gsap.timeline({
       defaults: { ease: "power2.out" },
       onComplete: startTopPathLoop,
@@ -92,11 +134,12 @@ document.addEventListener("DOMContentLoaded", () => {
       duration: 2,
     });
 
-    // Step 2: Loop top paths
     function startTopPathLoop() {
       let index = 0;
 
       function animateOnePath() {
+        if (stopLoop) return;
+
         const path = topPaths[index];
         const len = pathLengths[index];
         const box = boxes[index];
@@ -114,7 +157,11 @@ document.addEventListener("DOMContentLoaded", () => {
           ease: "power1.inOut",
           onStart: () => {
             gsap.to(defaultIcon, { opacity: 0, duration: 0.3 });
-            gsap.to(coloredIcon, { scale: 1.05, opacity: 1, duration: 0.6 });
+            gsap.to(coloredIcon, {
+              scale: 1.05,
+              opacity: 1,
+              duration: 0.6,
+            });
             gsap.to(box, {
               scale: 1.05,
               opacity: 1,
@@ -125,6 +172,8 @@ document.addEventListener("DOMContentLoaded", () => {
             });
           },
           onComplete: () => {
+            if (stopLoop) return;
+
             gsap.set(path, { strokeDashoffset: -len });
             gsap.set(defaultIcon, { opacity: 1, scale: 1 });
             gsap.set(coloredIcon, { opacity: 0, scale: 0.9 });
@@ -136,9 +185,8 @@ document.addEventListener("DOMContentLoaded", () => {
               border: "1px solid #ccc",
             });
 
-            if (index === 3) index = 0;
-            else index++;
-            setTimeout(animateOnePath, 800);
+            index = (index + 1) % topPaths.length;
+            topPathLoopTimeout = setTimeout(animateOnePath, 800);
           },
         });
       }
@@ -147,17 +195,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // Intersection Observer
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          if (!animationStarted) {
-            startThirdAnimation();
-            animationStarted = true;
-          }
-        } else {
-          // Allow it to run again next time
+        if (entry.isIntersecting && !animationStarted) {
+          animationStarted = true;
+          startFourthAnimation();
+        } else if (!entry.isIntersecting && animationStarted) {
+          resetThirdAnimations();
           animationStarted = false;
         }
       });
@@ -168,8 +213,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   );
 
-  const thirdContainer = document.querySelector(".third-animation-container");
-  if (thirdContainer) {
-    observer.observe(thirdContainer);
+  const fourthContainer = document.querySelector(".third-animation-container");
+  if (fourthContainer) {
+    observer.observe(fourthContainer);
   }
 });

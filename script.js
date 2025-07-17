@@ -193,7 +193,15 @@ customersCards.forEach(({ icon, title, desc }) => {
 
 // --------------------- Partners  Section ------------------------------
 
-const partners = ["./assets/images/veeam-logo.svg"];
+const partners = [
+  "./assets/images/veeam-logo.svg",
+  "./assets/images/redhat_logo.svg",
+  "./assets/images/multilynx_logo.svg",
+  "./assets/images/trendmicro_logo.svg",
+  "./assets/images/cloudfare_logo.svg",
+  "./assets/images/fortinet_logo.svg",
+  "./assets/images/vmware_logo.svg",
+];
 
 const partnersContainer = document.getElementById("partnersContainer");
 
