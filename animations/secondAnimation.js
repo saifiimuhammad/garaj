@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
       {
         opacity: 1,
         scale: 1,
-        delay: 4,
+        delay: 2,
         duration: 1,
         ease: "power2.out",
       }
@@ -93,6 +93,14 @@ document.addEventListener("DOMContentLoaded", () => {
       strokeDashoffset: 0,
       duration: 1.5,
       ease: "power2.inOut",
+      onComplete: () => {
+        gsap.to(mainPath, {
+          opacity: 0,
+          duration: 0.5,
+          ease: "power2.out",
+        });
+        startTopPathLoop();
+      },
     });
 
     // Loop through side paths one by one

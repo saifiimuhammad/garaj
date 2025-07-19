@@ -25,7 +25,7 @@ const FourthAnimations = () => {
     {
       opacity: 1,
       scale: 1,
-      delay: 4,
+      delay: 2,
       duration: 1,
     }
   );
@@ -132,6 +132,14 @@ document.addEventListener("DOMContentLoaded", () => {
     intro.to(mainPath, {
       strokeDashoffset: 0,
       duration: 2,
+      onComplete: () => {
+        gsap.to(mainPath, {
+          opacity: 0,
+          duration: 0.5,
+          ease: "power2.out",
+        });
+        startTopPathLoop();
+      },
     });
 
     function startTopPathLoop() {

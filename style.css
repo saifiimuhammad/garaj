@@ -2084,6 +2084,8 @@ canvas {
   top: 1.5rem;
   opacity: 0;
   left: 1rem;
+  z-index: 4;
+  border-radius: 20px;
 }
 
 .third-svg-main {
@@ -2212,6 +2214,8 @@ canvas {
   top: 1.5rem;
   opacity: 0;
   left: 1rem;
+  z-index: 4;
+  border-radius: 20px;
 }
 
 .fourth-svg-main {
@@ -2356,13 +2360,13 @@ canvas {
 }
 #third-path3,
 #fourth-path3 {
-  top: 33.1rem;
+  top: 28rem;
   left: 27rem;
   transform: rotate(180deg);
 }
 #third-path4,
 #fourth-path4 {
-  top: 33.1rem;
+  top: 28rem;
   left: 9rem;
   transform: rotate(180deg);
 }
