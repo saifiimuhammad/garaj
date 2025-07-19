@@ -25,7 +25,7 @@ const FourthAnimations = () => {
     {
       opacity: 1,
       scale: 1,
-      delay: 1.5,
+      delay: 4,
       duration: 1,
     }
   );

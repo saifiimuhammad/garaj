@@ -161,25 +161,25 @@
 
 @media (min-width: 1200px) {
   .quickstart-points-container {
-    padding: 2rem;
+    padding-inline: 8rem;
   }
   .quickstart-2 {
-    bottom: 12rem;
+    bottom: 10rem;
   }
   .quickstart-3 {
-    bottom: 22rem;
+    bottom: 18rem;
   }
 }
 
 @media (min-width: 1440px) {
   .quickstart-points-container {
-    padding: 2rem;
+    padding-inline: 8rem;
   }
   .quickstart-2 {
-    bottom: 16rem;
+    bottom: 14rem;
   }
   .quickstart-3 {
-    bottom: 26rem;
+    bottom: 24rem;
   }
 }
 

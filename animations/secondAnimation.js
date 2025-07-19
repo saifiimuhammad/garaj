@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
       {
         opacity: 1,
         scale: 1,
-        delay: 1.8,
+        delay: 4,
         duration: 1,
         ease: "power2.out",
       }
@@ -83,15 +83,15 @@ document.addEventListener("DOMContentLoaded", () => {
       { scale: 1.05, duration: 0.5, yoyo: true, repeat: 1 }
     );
 
-    intro.to(topPaths[0], {
-      strokeDashoffset: 0,
-      duration: 1,
-      ease: "power2.inOut",
-    });
+    // intro.to(topPaths[0], {
+    //   strokeDashoffset: 0,
+    //   duration: 1,
+    //   ease: "power2.inOut",
+    // });
 
     intro.to(mainPath, {
       strokeDashoffset: 0,
-      duration: 2,
+      duration: 1.5,
       ease: "power2.inOut",
     });
 
