@@ -1331,6 +1331,16 @@ canvas {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2.5rem 2rem;
+  place-content: center;
+  justify-content: center;
+}
+
+.column-1 {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
 }
 
 @media (min-width: 640px) {
@@ -1352,12 +1362,12 @@ canvas {
 }
 
 .footer-logo {
-  width: 5rem;
+  width: 4rem;
 }
 
 @media (min-width: 1024px) {
   .footer-logo {
-    width: 5rem;
+    width: 4rem;
   }
 }
 
