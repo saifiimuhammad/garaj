@@ -1,151 +1,176 @@
+let firstAnimationStarted = false;
+let firstJustTriggered = false;
+let firstCurrentIndex = 0;
+let firstIsLoopRunning = false;
+let firstIsHoverPaused = false;
+let isReversing = false;
+let isDrawingHoverLine = false;
+let pendingReverse = null;
+let loopTimeout = null;
+let currentIndex = 0;
+let isLoopRunning = false; // NEW!
+let interval;
+let isHoverPaused = false;
+let shouldResume = false;
+
 function initAnimation() {
+  killAllLoops();
+  firstAnimationStarted = false;
+  firstJustTriggered = false;
+  firstCurrentIndex = 0;
+  firstIsLoopRunning = false;
+  firstIsHoverPaused = false;
+  isReversing = false;
+  isDrawingHoverLine = false;
+  pendingReverse = null;
+
   function findDefualtImages(index) {
     if (index === 0) {
-      return "./assets/icons/1.svg";
-    } else if (index === 2) {
-      return "./assets/icons/2.svg";
+      return "./assets/icons/icon-default/1.svg";
+    } else if (index === 1) {
+      return "./assets/icons/icon-default/2.svg";
     } else if (index === 3) {
-      return "./assets/icons/3.svg";
-    } else if (index === 5) {
-      return "./assets/icons/6.svg";
-    } else if (index === 6) {
-      return "./assets/icons/7.svg";
-    } else if (index === 9) {
-      return "./assets/icons/10.svg";
+      return "./assets/icons/icon-default/4.svg";
+    } else if (index === 4) {
+      return "./assets/icons/icon-default/5.svg";
+    } else if (index === 7) {
+      return "./assets/icons/icon-default/8.svg";
     } else if (index === 10) {
-      return "./assets/icons/11.svg";
-    } else if (index === 13) {
-      return "./assets/icons/14.svg";
+      return "./assets/icons/icon-default/11.svg";
+    } else if (index === 11) {
+      return "./assets/icons/icon-default/12.svg";
+    } else if (index === 12) {
+      return "./assets/icons/icon-default/13.svg";
     } else if (index === 14) {
-      return "./assets/icons/15.svg";
+      return "./assets/icons/icon-default/15.svg";
     } else if (index === 15) {
-      return "./assets/icons/16.svg";
-    } else if (index === 17) {
-      return "./assets/icons/18.svg";
+      return "./assets/icons/icon-default/16.svg";
+    } else if (index === 16) {
+      return "./assets/icons/icon-default/17.svg";
     } else if (index === 18) {
-      return "./assets/icons/19.svg";
-    } else if (index === 20) {
-      return "./assets/icons/21.svg";
+      return "./assets/icons/icon-default/19.svg";
+    } else if (index === 19) {
+      return "./assets/icons/icon-default/20.svg";
     } else if (index === 21) {
-      return "./assets/icons/22.svg";
-    } else if (index === 25) {
-      return "./assets/icons/32.svg";
+      return "./assets/icons/icon-default/22.svg";
+    } else if (index === 23) {
+      return "./assets/icons/icon-default/24.svg";
     } else if (index === 26) {
-      return "./assets/icons/27.svg";
+      return "./assets/icons/icon-default/27.svg";
     } else if (index === 27) {
-      return "./assets/icons/28.svg";
-    } else if (index === 28) {
-      return "./assets/icons/29.svg";
+      return "./assets/icons/icon-default/28.svg";
     } else if (index === 29) {
-      return "./assets/icons/32.svg";
+      return "./assets/icons/icon-default/30.svg";
+    } else if (index === 30) {
+      return "./assets/icons/icon-default/31.svg";
     } else if (index === 31) {
-      return "./assets/icons/32.svg";
+      return "./assets/icons/icon-default/32.svg";
+    } else if (index === 33) {
+      return "./assets/icons/icon-default/34.svg";
     } else if (index === 34) {
-      return "./assets/icons/35.svg";
-    } else if (index === 35) {
-      return "./assets/icons/36.svg";
+      return "./assets/icons/icon-default/35.svg";
     } else {
-      return "./assets/icons/1.svg";
+      return "./assets/icons/icon-default/1.svg";
     }
   }
 
   function findColoredImages(index) {
     if (index === 0) {
-      return "./assets/icons/1_color.svg";
-    } else if (index === 2) {
-      return "./assets/icons/2_color.svg";
+      return "./assets/icons/icon-colored/1.svg";
+    } else if (index === 1) {
+      return "./assets/icons/icon-colored/2.svg";
     } else if (index === 3) {
-      return "./assets/icons/3_color.svg";
-    } else if (index === 5) {
-      return "./assets/icons/6_color.svg";
-    } else if (index === 6) {
-      return "./assets/icons/7_color.svg";
-    } else if (index === 9) {
-      return "./assets/icons/10_color.svg";
+      return "./assets/icons/icon-colored/4.svg";
+    } else if (index === 4) {
+      return "./assets/icons/icon-colored/5.svg";
+    } else if (index === 7) {
+      return "./assets/icons/icon-colored/8.svg";
     } else if (index === 10) {
-      return "./assets/icons/11_color.svg";
-    } else if (index === 13) {
-      return "./assets/icons/14_color.svg";
+      return "./assets/icons/icon-colored/11.svg";
+    } else if (index === 11) {
+      return "./assets/icons/icon-colored/12.svg";
+    } else if (index === 12) {
+      return "./assets/icons/icon-colored/13.svg";
     } else if (index === 14) {
-      return "./assets/icons/15_color.svg";
+      return "./assets/icons/icon-colored/15.svg";
     } else if (index === 15) {
-      return "./assets/icons/16_color.svg";
-    } else if (index === 17) {
-      return "./assets/icons/18_color.svg";
+      return "./assets/icons/icon-colored/16.svg";
+    } else if (index === 16) {
+      return "./assets/icons/icon-colored/17.svg";
     } else if (index === 18) {
-      return "./assets/icons/19_color.svg";
-    } else if (index === 20) {
-      return "./assets/icons/21_color.svg";
+      return "./assets/icons/icon-colored/19.svg";
+    } else if (index === 19) {
+      return "./assets/icons/icon-colored/20.svg";
     } else if (index === 21) {
-      return "./assets/icons/22_color.svg";
-    } else if (index === 25) {
-      return "./assets/icons/32_color.svg";
+      return "./assets/icons/icon-colored/22.svg";
+    } else if (index === 23) {
+      return "./assets/icons/icon-colored/24.svg";
     } else if (index === 26) {
-      return "./assets/icons/27_color.svg";
+      return "./assets/icons/icon-colored/27.svg";
     } else if (index === 27) {
-      return "./assets/icons/28_color.svg";
-    } else if (index === 28) {
-      return "./assets/icons/29_color.svg";
+      return "./assets/icons/icon-colored/28.svg";
     } else if (index === 29) {
-      return "./assets/icons/32_color.svg";
+      return "./assets/icons/icon-colored/30.svg";
+    } else if (index === 30) {
+      return "./assets/icons/icon-colored/31.svg";
     } else if (index === 31) {
-      return "./assets/icons/32_color.svg";
+      return "./assets/icons/icon-colored/32.svg";
+    } else if (index === 33) {
+      return "./assets/icons/icon-colored/34.svg";
     } else if (index === 34) {
-      return "./assets/icons/35_color.svg";
-    } else if (index === 35) {
-      return "./assets/icons/36_color.svg";
+      return "./assets/icons/icon-colored/35.svg";
     } else {
-      return "./assets/icons/1_color.svg";
+      return "./assets/icons/icon-colored/1.svg";
     }
   }
 
   function findIconText(index) {
     if (index === 0) {
-      return "Microsoft";
-    } else if (index === 2) {
-      return "Fortinet";
+      return "IaaS";
+    } else if (index === 1) {
+      return "VPS";
     } else if (index === 3) {
-      return "Cloudfare";
-    } else if (index === 5) {
-      return "Samsung";
-    } else if (index === 6) {
-      return "Knox";
-    } else if (index === 9) {
-      return "Tibbit";
+      return "Backup";
+    } else if (index === 4) {
+      return "DB";
+    } else if (index === 7) {
+      return "VDC";
     } else if (index === 10) {
-      return "Red hat";
-    } else if (index === 13) {
-      return "VPS";
+      return "Data Center";
+    } else if (index === 11) {
+      return "SQL";
+    } else if (index === 12) {
+      return "SAAS";
     } else if (index === 14) {
-      return "VDC";
+      return "BaaS";
     } else if (index === 15) {
-      return "Digital";
+      return "DR";
     } else if (index === 17) {
-      return "SaaS";
+      return "Digital Park";
     } else if (index === 18) {
-      return "Disaster";
-    } else if (index === 20) {
-      return "Recovery";
+      return "Network";
+    } else if (index === 19) {
+      return "Mail";
     } else if (index === 21) {
-      return "Fortinet";
-    } else if (index === 25) {
-      return "Cloudfare";
-    } else if (index === 26) {
-      return "Microsoft";
-    } else if (index === 27) {
-      return "Red hat";
-    } else if (index === 28) {
       return "Tibbit";
+    } else if (index === 22) {
+      return "Solutions";
+    } else if (index === 26) {
+      return "Security";
+    } else if (index === 27) {
+      return "Fortinet";
     } else if (index === 29) {
-      return "Knox";
+      return "OMNI";
+    } else if (index === 30) {
+      return "SASE";
     } else if (index === 31) {
-      return "VPS";
+      return "SD-WAN";
+    } else if (index === 33) {
+      return "Cloudfare";
     } else if (index === 34) {
-      return "Digital";
-    } else if (index === 35) {
-      return "Microsoft";
+      return "Webkaari";
     } else {
-      return "VDC";
+      return "Garaj";
     }
   }
 
@@ -159,8 +184,6 @@ function initAnimation() {
     };
   }
 
-  let interval;
-
   // const layout = [
   //   [2, 2, 2, 0, 0, 2],
   //   [1, 0, 0, 2, 3, 0],
@@ -172,8 +195,8 @@ function initAnimation() {
   const layout = [
     [1, 1, 0, 2, 3, 0],
     [0, 1, 0, 0, 4, 3],
-    [5, 0, 2, 2, 4, 0],
-    [6, 5, 0, 5, 0, 8],
+    [5, 0, 2, 2, 0, 4],
+    [6, 5, 0, 5, 8, 0],
     [0, 0, 7, 7, 0, 8],
     [6, 6, 0, 7, 8, 0],
   ];
@@ -240,15 +263,17 @@ function initAnimation() {
   }
 
   function getCenter(row, col) {
-    const sampleBox = document.querySelector(".box");
-    const boxRect = sampleBox.getBoundingClientRect();
-    const boxWidth = boxRect.width;
-    const boxHeight = boxRect.height;
-    const gridRect = grid.getBoundingClientRect();
+    const box = document.querySelector(
+      `[data-row="${row}"][data-col="${col}"]`
+    );
+    const boxRect = box.getBoundingClientRect();
+    const svgRect = document
+      .getElementById("connector-svg")
+      .getBoundingClientRect();
 
     return {
-      x: gridRect.left + col * boxWidth + boxWidth / 2 + window.scrollX,
-      y: gridRect.top + row * boxHeight + boxHeight / 2 + window.scrollY,
+      x: boxRect.left - svgRect.left + boxRect.width / 2,
+      y: boxRect.top - svgRect.top + boxRect.height / 2,
     };
   }
 
@@ -266,6 +291,7 @@ function initAnimation() {
 
     while (queue.length) {
       const path = queue.shift();
+      if (!path.length) console.warn("No path between", current, "and", target);
       const curr = path[path.length - 1];
 
       if (curr.row === to.row && curr.col === to.col) return path;
@@ -297,9 +323,11 @@ function initAnimation() {
     document.querySelector("#connector-svg").classList.add("hide");
   }
 
-  function drawLinesForGroup(group) {
+  function drawLinesForGroup(group, onAnimationComplete, isHover = false) {
     clearLines();
-    document.querySelector("#connector-svg").classList.remove("hide");
+    const svg = document.getElementById("connector-svg");
+    svg.classList.remove("hide");
+    Array.from(svg.querySelectorAll("path")).forEach((el) => el.remove());
 
     const boxes = boxMap[group];
     if (!boxes || boxes.length < 2) return;
@@ -320,7 +348,6 @@ function initAnimation() {
       const target = positions[i];
       const path = findPath(current, target);
       if (!path.length) continue;
-
       for (let j = 1; j < path.length; j++) {
         const key = `${path[j].row},${path[j].col}`;
         if (!visited.has(key)) {
@@ -328,39 +355,30 @@ function initAnimation() {
           visited.add(key);
         }
       }
-
       current = target;
     }
 
     if (fullPath.length < 2) return;
 
-    // Use DOM box center positions
     const coords = fullPath.map(({ row, col }) => {
       const index = row * layout[0].length + col;
       const box = grid.children[index];
       const rect = box.getBoundingClientRect();
+      const containerRect = document
+        .querySelector(".wrapper")
+        .getBoundingClientRect();
       return {
-        x: rect.left + rect.width / 2 + window.scrollX,
-        y: rect.top + rect.height / 2 + window.scrollY,
+        x: rect.left - containerRect.left + rect.width / 2,
+        y: rect.top - containerRect.top + rect.height / 2,
       };
     });
-
-    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svg.setAttribute("class", "connection-path");
-    svg.style.position = "absolute";
-    svg.style.left = "0";
-    svg.style.top = "0";
-    svg.style.width = "100%";
-    svg.style.height = "100%";
-    svg.style.pointerEvents = "none";
-    svg.style.zIndex = "1";
 
     const pathEl = document.createElementNS(
       "http://www.w3.org/2000/svg",
       "path"
     );
     pathEl.setAttribute("fill", "none");
-    pathEl.setAttribute("stroke", "#f1991d");
+    pathEl.setAttribute("stroke", "url(#lineGradient)");
     pathEl.setAttribute("stroke-width", "4");
     pathEl.setAttribute("stroke-linejoin", "round");
     pathEl.setAttribute("stroke-linecap", "round");
@@ -369,170 +387,212 @@ function initAnimation() {
     for (let i = 1; i < coords.length; i++) {
       const prev = coords[i - 1];
       const curr = coords[i];
-      // go horizontal
       if (prev.x !== curr.x) d += ` L${curr.x},${prev.y}`;
-      // then vertical
       if (prev.y !== curr.y) d += ` L${curr.x},${curr.y}`;
     }
-
     pathEl.setAttribute("d", d);
-    pathEl.style.strokeDasharray = pathEl.getTotalLength();
-    pathEl.style.strokeDashoffset = pathEl.getTotalLength();
-    pathEl.style.animation = "drawPath 1s ease forwards";
+
+    // Animate the path (make slower for effect)
+    const len = pathEl.getTotalLength();
+    pathEl.style.strokeDasharray = len;
+    pathEl.style.strokeDashoffset = len;
+    console.log(d);
+    console.log("hover " + isHover);
+    if (isHover) {
+      isDrawingHoverLine = true;
+      gsap.fromTo(
+        pathEl,
+        { strokeDashoffset: len },
+        {
+          strokeDashoffset: 0,
+          duration: 2,
+          ease: "power2.out",
+          onComplete: () => {
+            isDrawingHoverLine = false;
+            if (pendingReverse) {
+              pendingReverse(); // Execute delayed reverse
+              pendingReverse = null;
+            }
+            if (typeof onAnimationComplete === "function")
+              onAnimationComplete();
+          },
+        }
+      );
+    } else {
+      // Use CSS animation for auto-loop
+      const len = pathEl.getTotalLength();
+      pathEl.style.strokeDasharray = `${len} ${len}`;
+      pathEl.style.strokeDashoffset = len;
+
+      // Step 1: Draw the line from start → end
+      gsap.to(pathEl, {
+        strokeDashoffset: 0,
+        duration: 2.5,
+        ease: "power2.out",
+        onComplete: () => {
+          // Step 2: Shrink the dasharray length from start → end (tail shrinks)
+          gsap.to(pathEl, {
+            strokeDashoffset: -len,
+            duration: 2.5,
+            ease: "power2.inOut",
+            onComplete: () => {
+              if (typeof onAnimationComplete === "function")
+                onAnimationComplete();
+            },
+          });
+        },
+      });
+    }
 
     svg.appendChild(pathEl);
-    document.body.appendChild(svg);
-    currentAutoLine = svg;
   }
 
   Object.keys(boxMap).forEach((group) => {
     boxMap[group].forEach((box) => {
       box.addEventListener("mouseenter", () => {
-        boxMap[group].forEach((b) => {
+        isHoverPaused = true;
+        isLoopRunning = false;
+        const targetGroup = box.dataset.group;
+
+        // Reset all boxes first
+        Object.values(boxMap)
+          .flat()
+          .forEach((b) => {
+            gsap.to(b.querySelector(".icon-default"), {
+              opacity: 1,
+              duration: 0.3,
+            });
+            gsap.to(b.querySelector(".icon-colored"), {
+              opacity: 0,
+              y: 0,
+              duration: 0.3,
+            });
+            gsap.to(b.querySelector(".text"), {
+              opacity: 0,
+              y: 3,
+              duration: 0.3,
+            });
+
+            gsap.to(b, {
+              scale: 1,
+              boxShadow: "0 0 0 transparent",
+              duration: 0.3,
+            });
+          });
+
+        // Highlight only this group
+        boxMap[targetGroup].forEach((b) => {
+          gsap.to(b.querySelector(".icon-default"), {
+            opacity: 0,
+            duration: 0.3,
+          });
+          gsap.to(b.querySelector(".icon-colored"), {
+            opacity: 1,
+            y: -9,
+            duration: 0.3,
+          });
+          gsap.to(b.querySelector(".text"), {
+            opacity: 1,
+            y: -3,
+            duration: 0.3,
+          });
+
           gsap.to(b, {
-            scale: 1.02,
+            scale: 1.05,
             boxShadow: "0 0 15px rgba(139, 139, 139, 1)",
             duration: 0.3,
           });
-
-          gsap.fromTo(
-            b.querySelector(".icon-default"),
-            {
-              opacity: 1,
-            },
-            {
-              opacity: 0,
-              duration: 0.3,
-            }
-          );
-
-          gsap.fromTo(
-            b.querySelector(".icon-colored"),
-            {
-              opacity: 0,
-              y: 0,
-            },
-            {
-              opacity: 1,
-              y: -9,
-              duration: 0.3,
-            }
-          );
-
-          gsap.fromTo(
-            b.querySelector(".text"),
-            {
-              opacity: 0,
-              y: 3,
-            },
-            {
-              opacity: 1,
-              y: -3,
-              duration: 0.3,
-            }
-          );
         });
-        drawLinesForGroup(group);
+
+        // Draw the group line
+        drawLinesForGroup(targetGroup, null, true);
       });
 
       box.addEventListener("mouseleave", () => {
-        boxMap[group].forEach((b) => {
-          gsap.to(b, {
-            scale: 1,
-            boxShadow: "0 0 0 transparent",
-            duration: 0.3,
-          });
+        if (isReversing || isRetracting) return;
 
-          gsap.fromTo(
-            b.querySelector(".icon-default"),
-            {
-              opacity: 0,
-            },
-            {
+        const group = box.dataset.group;
+        isHoverPaused = false;
+        clearTimeout(loopTimeout);
+
+        const finishResetAndLoop = () => {
+          boxMap[group].forEach((b) => {
+            gsap.to(b, {
+              scale: 1,
+              boxShadow: "0 0 0 transparent",
+              duration: 0.3,
+            });
+            gsap.to(b.querySelector(".icon-default"), {
               opacity: 1,
               duration: 0.3,
-            }
-          );
-
-          gsap.fromTo(
-            b.querySelector(".icon-colored"),
-            {
-              opacity: 1,
-              y: -9,
-            },
-            {
+            });
+            gsap.to(b.querySelector(".icon-colored"), {
               opacity: 0,
               y: 0,
               duration: 0.3,
-            }
-          );
-
-          gsap.fromTo(
-            b.querySelector(".text"),
-            {
-              opacity: 1,
-              y: -3,
-            },
-            {
+            });
+            gsap.to(b.querySelector(".text"), {
               opacity: 0,
               y: 3,
               duration: 0.3,
-            }
-          );
-        });
+            });
+          });
 
-        function hideLine() {
-          this.style.display = "none";
+          clearLines();
+
+          loopTimeout = setTimeout(() => {
+            if (!isHoverPaused && !isLoopRunning && !isReversing) {
+              autoLoopGroups("mouseleave fallback");
+            }
+          }, 200);
+        };
+
+        if (isDrawingHoverLine) {
+          pendingReverse = () => reverseLineForGroup(group, finishResetAndLoop);
+        } else {
+          reverseLineForGroup(group, finishResetAndLoop);
+        }
+      });
+      let isRetracting = false;
+      function reverseLineForGroup(group, onComplete) {
+        if (isReversing) return;
+        isReversing = true;
+
+        const svg = document.getElementById("connector-svg");
+        const pathEl = svg.querySelector("path");
+        if (!pathEl) {
+          isReversing = false;
+          if (onComplete) onComplete();
+          return;
         }
 
-        currentLines.forEach((line) => {
-          gsap.to(line, {
-            x2: line.getAttribute("x1"),
-            y2: line.getAttribute("y1"),
-            duration: 0.3,
-            ease: "power2.in",
-            onComplete: hideLine.bind(line),
-          });
+        const len = pathEl.getTotalLength();
+
+        gsap.to(pathEl, {
+          strokeDashoffset: -len,
+          duration: 1.2,
+          ease: "power2.inOut",
+          onComplete: () => {
+            pathEl.remove();
+            isReversing = false;
+            isReversing = false;
+            if (onComplete) {
+              setTimeout(() => onComplete(), 50);
+            }
+          },
         });
-      });
+      }
     });
   });
 
-  grid.addEventListener("mouseleave", () => {
-    clearLines();
-
-    Object.values(boxMap)
-      .flat()
-      .forEach((b) => {
-        gsap.to(b, {
-          scale: 1,
-          boxShadow: "0 0 0 transparent",
-          duration: 0.3,
-        });
-
-        gsap.to(b.querySelector(".icon-default"), {
-          opacity: 1,
-          duration: 0.3,
-        });
-
-        gsap.to(b.querySelector(".icon-colored"), {
-          opacity: 0,
-          y: 0,
-          duration: 0.3,
-        });
-
-        gsap.to(b.querySelector(".text"), {
-          opacity: 0,
-          y: 3,
-          duration: 0.3,
-        });
-      });
-  });
-
-  let currentIndex = 0;
   const groupKeys = Object.keys(boxMap);
 
-  function autoLoopGroups() {
+  function autoLoopGroups(source = "unknown") {
+    console.log("Running autoLoopGroups from:", source);
+    if (isLoopRunning || isHoverPaused) return;
+    clearTimeout(loopTimeout);
+    isLoopRunning = true;
+
     const group = groupKeys[currentIndex];
     const boxes = boxMap[group];
 
@@ -540,154 +600,149 @@ function initAnimation() {
     Object.values(boxMap)
       .flat()
       .forEach((b) => {
-        gsap.to(b, {
-          scale: 1,
-          boxShadow: "0 0 0 transparent",
-          duration: 0.3,
-        });
-
+        gsap.to(b, { scale: 1, boxShadow: "0 0 0 transparent", duration: 0.3 });
         gsap.to(b.querySelector(".icon-default"), {
           opacity: 1,
           duration: 0.3,
         });
-
         gsap.to(b.querySelector(".icon-colored"), {
           opacity: 0,
           y: 0,
           duration: 0.3,
         });
-
-        gsap.to(b.querySelector(".text"), {
-          opacity: 0,
-          y: 3,
-          duration: 0.3,
-        });
+        gsap.to(b.querySelector(".text"), { opacity: 0, y: 3, duration: 0.3 });
       });
 
     clearLines();
 
-    // Animate current group
+    // Highlight current group
     boxes.forEach((b) => {
       gsap.to(b, {
         scale: 1.02,
-        boxShadow: "0 0 15px rgba(139, 139, 139, 1)",
+        boxShadow: "0 0 15px rgba(139,139,139,1)",
         duration: 0.3,
       });
-
-      gsap.to(b.querySelector(".icon-default"), {
-        opacity: 0,
-        duration: 0.3,
-      });
-
+      gsap.to(b.querySelector(".icon-default"), { opacity: 0, duration: 0.3 });
       gsap.to(b.querySelector(".icon-colored"), {
         opacity: 1,
         y: -9,
         duration: 0.3,
       });
-
-      gsap.to(b.querySelector(".text"), {
-        opacity: 1,
-        y: -3,
-        duration: 0.3,
-      });
+      gsap.to(b.querySelector(".text"), { opacity: 1, y: -3, duration: 0.3 });
     });
 
-    drawLinesForGroup(group);
+    drawLinesForGroup(group, function () {
+      currentIndex = (currentIndex + 1) % groupKeys.length;
+      isLoopRunning = false;
 
-    currentIndex = (currentIndex + 1) % groupKeys.length;
+      if (!isHoverPaused) {
+        clearTimeout(loopTimeout);
+        loopTimeout = setTimeout(() => {
+          if (
+            !isLoopRunning &&
+            !isHoverPaused &&
+            !isDrawingHoverLine &&
+            !isReversing
+          ) {
+            autoLoopGroups("after group animation");
+          }
+        }, 200);
+      }
+    });
   }
 
-  // Run auto loop
+  function killAllLoops() {
+    console.log("Killing all loops...");
 
-  function startLoop() {
-    interval = setInterval(autoLoopGroups, 3000);
+    clearTimeout(loopTimeout);
+    loopTimeout = null;
+    currentIndex = 0;
+    isLoopRunning = false;
+    firstIsLoopRunning = false;
+    isHoverPaused = false;
+    firstIsHoverPaused = false;
+
+    isDrawingHoverLine = false;
+    isReversing = false;
+    pendingReverse = null;
+
+    // Kill any GSAP tweens globally (only if needed)
+    if (typeof gsap !== "undefined") {
+      gsap.globalTimeline.clear(); // Stops all GSAP animations if applicable
+    }
   }
 
-  function stopLoop() {
-    clearInterval(interval);
-  }
-  startLoop();
+  // Start immediately
+  autoLoopGroups();
 
-  grid.addEventListener("mouseenter", stopLoop);
-  grid.addEventListener("mouseleave", startLoop);
-
-  window.addEventListener("scroll", () => {
-    stopLoop(); // stop auto-loop
-    clearLines();
-
-    Object.values(boxMap)
-      .flat()
-      .forEach((b) => {
-        gsap.to(b, {
-          scale: 1,
-          boxShadow: "0 0 0 transparent",
-          duration: 0.3,
-        });
-
-        gsap.to(b.querySelector(".icon-default"), {
-          opacity: 1,
-          duration: 0.3,
-        });
-
-        gsap.to(b.querySelector(".icon-colored"), {
-          opacity: 0,
-          y: 0,
-          duration: 0.3,
-        });
-
-        gsap.to(b.querySelector(".text"), {
-          opacity: 0,
-          y: 3,
-          duration: 0.3,
-        });
-      });
-  });
-
-  window.addEventListener("blur", () => {
-    clearLines();
-
-    Object.values(boxMap)
-      .flat()
-      .forEach((b) => {
-        gsap.to(b, {
-          scale: 1,
-          boxShadow: "0 0 0 transparent",
-          duration: 0.3,
-        });
-
-        gsap.to(b.querySelector(".icon-default"), {
-          opacity: 1,
-          duration: 0.3,
-        });
-
-        gsap.to(b.querySelector(".icon-colored"), {
-          opacity: 0,
-          y: 0,
-          duration: 0.3,
-        });
-
-        gsap.to(b.querySelector(".text"), {
-          opacity: 0,
-          y: 3,
-          duration: 0.3,
-        });
-      });
-  });
+  // grid.addEventListener("mouseenter", stopLoop);
+  // grid.addEventListener("mouseleave", startLoop);
 }
 
-const observer = new IntersectionObserver(
-  (entries, observer) => {
+const firstTargetSection = document.querySelector(".first-animation-container");
+let firstHasPlayed = false;
+
+const firstObserver = new IntersectionObserver(
+  (entries) => {
     entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        initAnimation(); // 🔥 Run your animation setup
-        observer.unobserve(entry.target); // 🛑 Run only once
+      if (entry.isIntersecting && !firstHasPlayed) {
+        firstHasPlayed = true; // only play ONCE per session
+        // FULL RESET
+        document.getElementById("box-grid").innerHTML = "";
+        let svg = document.getElementById("connector-svg");
+        if (svg) {
+          Array.from(svg.querySelectorAll("path")).forEach((el) => el.remove());
+          svg.classList.add("hide");
+        }
+        firstCurrentIndex = 0;
+        firstIsLoopRunning = false;
+        firstIsHoverPaused = false;
+        isReversing = false;
+        isDrawingHoverLine = false;
+        pendingReverse = null;
+
+        clearTimeout(loopTimeout);
+        isLoopRunning = false;
+
+        initAnimation();
       }
+      // If you want it to be possible to "re-enter" the section and restart, uncomment below:
+      // else if (!entry.isIntersecting && firstHasPlayed) {
+      //   firstHasPlayed = false; // now it'll restart when you scroll out and back in
+      // }
     });
   },
   {
-    threshold: 0.3, // Trigger when 30% of the section is visible
+    threshold: 0.3,
+    rootMargin: "0px 0px -50px 0px",
   }
 );
 
-const targetSection = document.querySelector(".first-animation-container");
-observer.observe(targetSection);
+if (firstTargetSection) {
+  firstObserver.observe(firstTargetSection);
+}
+
+window.startFirstAnimation = function () {
+  // Optional: Stop any running auto loop timer or GSAP animation
+  if (typeof firstLoopTween !== "undefined" && firstLoopTween) {
+    firstLoopTween.kill(); // If you used GSAP timelines
+    firstLoopTween = null;
+  }
+
+  firstIsLoopRunning = false;
+  firstIsHoverPaused = false;
+  firstCurrentIndex = 0;
+
+  // Clear grid
+  document.getElementById("box-grid").innerHTML = "";
+
+  // Clear SVG paths
+  const svg = document.getElementById("connector-svg");
+  if (svg) {
+    svg.querySelectorAll("path").forEach((el) => el.remove());
+    svg.classList.add("hide");
+  }
+
+  // Cleanly start
+  initAnimation();
+};

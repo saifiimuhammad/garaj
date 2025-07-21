@@ -236,3 +236,75 @@ socials.forEach(({ icon, link }) => {
 // ------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------
 // ------------------------------------------------------------------------------
+
+document.addEventListener("DOMContentLoaded", function () {
+  const textSections = document.querySelectorAll(".text-section");
+  const animIds = ["first", "second", "third", "fourth"];
+  let currentActiveAnim = null; // <-- keep track of which is active
+
+  function clearActive() {
+    textSections.forEach((sec) => sec.classList.remove("active"));
+    animIds.forEach((id) => {
+      const animEl = document.getElementById(`anim-${id}`);
+      if (animEl) animEl.classList.remove("active");
+    });
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      let maxRatio = 0,
+        target = null;
+      entries.forEach((entry) => {
+        if (entry.intersectionRatio > maxRatio) {
+          maxRatio = entry.intersectionRatio;
+          target = entry.target;
+        }
+      });
+      if (target && maxRatio > 0.7) {
+        const anim = target.dataset.anim;
+        const animPanel = document.getElementById(`anim-${anim}`);
+        // Only trigger if not already active panel
+        if (
+          currentActiveAnim !== anim &&
+          !(animPanel && animPanel.classList.contains("active"))
+        ) {
+          currentActiveAnim = anim;
+          clearActive();
+          target.classList.add("active");
+          if (animPanel) animPanel.classList.add("active");
+          if (
+            anim === "first" &&
+            typeof window.startFirstAnimation === "function"
+          )
+            window.startFirstAnimation();
+          if (
+            anim === "second" &&
+            typeof window.startSecondAnimation === "function"
+          )
+            window.startSecondAnimation();
+          if (
+            anim === "third" &&
+            typeof window.startThirdAnimation === "function"
+          )
+            window.startThirdAnimation();
+          if (
+            anim === "fourth" &&
+            typeof window.startFourthAnimation === "function"
+          )
+            window.startFourthAnimation();
+        }
+      }
+    },
+    {
+      root: null,
+      threshold: [0.15, 0.4, 0.7, 1],
+    }
+  );
+
+  textSections.forEach((section) => observer.observe(section));
+  // Initial state
+  clearActive();
+  textSections[0].classList.add("active");
+  document.getElementById("anim-first").classList.add("active");
+  currentActiveAnim = "first"; // Set initial
+});

@@ -7,82 +7,83 @@
 
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="quickstart.css" />
+    <link rel="stylesheet" href="solutions.css" />
   </head>
 
   <body>
     <!-- Navigation bar -->
-    <header id="navbar">
-      <div class="logo">
-        <img src="./assets/images/garaj-logo.svg" alt="garaj_logo" />
-      </div>
-
-      <nav>
-        <ul>
-          <li>
-            <a href="/"
-              >Products
-              <img
-                src="./assets/icons/arrow-down-black.svg"
-                alt="arrow down"
-                style="width: 1.75rem; height: auto"
-            /></a>
-          </li>
-          <li>
-            <a href="/"
-              >Browse by Industry Vertical
-              <img
-                src="./assets/icons/arrow-down-black.svg"
-                alt="arrow down"
-                style="width: 1.75rem; height: auto"
-            /></a>
-          </li>
-          <li>
-            <a href="/"
-              >Partner Network
-              <img
-                src="./assets/icons/arrow-down-black.svg"
-                alt="arrow down"
-                style="width: 1.75rem; height: auto"
-            /></a>
-          </li>
-          <li>
-            <a href="/"
-              >Resources
-              <img
-                src="./assets/icons/arrow-down-black.svg"
-                alt="arrow down"
-                style="width: 1.75rem; height: auto"
-            /></a>
-          </li>
-        </ul>
-      </nav>
-
-      <div class="buttons">
-        <button style="font-weight: 500">Sign in</button>
-        <button class="contact-btn" style="background-color: white">
-          Contact Us
-          <img
-            src="./assets/icons/arrow-down-black.svg"
-            alt="arrow down"
-            style="width: 1.75rem; height: auto"
-          />
-        </button>
-      </div>
-
-      <button class="menu-icon" id="menuToggle">&#9776;</button>
-
-      <div class="mobile-menu" id="mobileMenu" style="display: none">
-        <a href="/">Products <span>&#9662;</span></a>
-        <a href="/">Browse by Industry Vertical <span>&#9662;</span></a>
-        <a href="/">Partner Network <span>&#9662;</span></a>
-        <a href="/">Resources <span>&#9662;</span></a>
-        <button>Sign in</button>
-        <button class="contact-btn">Contact Us</button>
-      </div>
-    </header>
 
     <!-- Hero Section -->
     <section class="hero">
+      <header id="navbar">
+        <div class="logo">
+          <img src="./assets/images/garaj-logo.svg" alt="garaj_logo" />
+        </div>
+
+        <nav>
+          <ul>
+            <li>
+              <a href="/"
+                >Products
+                <img
+                  src="./assets/icons/arrow-down-black.svg"
+                  alt="arrow down"
+                  style="width: 1.75rem; height: auto"
+              /></a>
+            </li>
+            <li>
+              <a href="/"
+                >Browse by Industry Vertical
+                <img
+                  src="./assets/icons/arrow-down-black.svg"
+                  alt="arrow down"
+                  style="width: 1.75rem; height: auto"
+              /></a>
+            </li>
+            <li>
+              <a href="/"
+                >Partner Network
+                <img
+                  src="./assets/icons/arrow-down-black.svg"
+                  alt="arrow down"
+                  style="width: 1.75rem; height: auto"
+              /></a>
+            </li>
+            <li>
+              <a href="/"
+                >Resources
+                <img
+                  src="./assets/icons/arrow-down-black.svg"
+                  alt="arrow down"
+                  style="width: 1.75rem; height: auto"
+              /></a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="buttons">
+          <button style="font-weight: 500">Sign in</button>
+          <button class="contact-btn" style="background-color: white">
+            Contact Us
+            <img
+              src="./assets/icons/arrow-down-black.svg"
+              alt="arrow down"
+              style="width: 1.75rem; height: auto"
+            />
+          </button>
+        </div>
+
+        <button class="menu-icon" id="menuToggle">&#9776;</button>
+
+        <div class="mobile-menu" id="mobileMenu" style="display: none">
+          <a href="/">Products <span>&#9662;</span></a>
+          <a href="/">Browse by Industry Vertical <span>&#9662;</span></a>
+          <a href="/">Partner Network <span>&#9662;</span></a>
+          <a href="/">Resources <span>&#9662;</span></a>
+          <button>Sign in</button>
+          <button class="contact-btn">Contact Us</button>
+        </div>
+      </header>
       <div class="canvas-container">
         <!-- <canvas canvas id="canv" width="32" height="32"> ></canvas> -->
         <canvas
@@ -129,10 +130,9 @@
       </div>
     </section>
 
-    <!-- Animations Section -->
     <section class="animation-section">
-      <div class="first-animation-container">
-        <div class="left">
+      <div class="left-stack">
+        <div class="text-section" data-anim="first">
           <h3 class="core-heading">Explore Our Core Solutions</h3>
           <h1 class="core-title">
             Discover a selection <br />
@@ -142,29 +142,7 @@
             transformation.
           </h1>
         </div>
-
-        <div class="wrapper">
-          <div class="grid-container" id="box-grid"></div>
-          <svg id="connector-svg">
-            <defs>
-              <linearGradient
-                id="lineGradient"
-                x1="0%"
-                y1="0%"
-                x2="100%"
-                y2="0%"
-              >
-                <stop offset="0%" stop-color="#3db0a0" />
-                <stop offset="33%" stop-color="#d45d51" />
-                <stop offset="66%" stop-color="#ffbd8a" />
-                <stop offset="100%" stop-color="#f1991d" />
-              </linearGradient>
-            </defs>
-          </svg>
-        </div>
-      </div>
-      <div class="second-animation-container">
-        <div class="second-left-section">
+        <div class="text-section" data-anim="second">
           <div class="second-icon-row">
             <img
               src="./assets/icons/v_icon.svg"
@@ -181,135 +159,7 @@
           </p>
           <button class="second-learn-btn">Learn More</button>
         </div>
-        <div class="second-right-section">
-          <div class="buttons-left">
-            <div class="icon-outlined second-boxes">
-              <img src="./assets/icons/1.svg" alt="" class="icon-default" />
-              <img
-                src="./assets/icons/1_color.svg"
-                alt=""
-                class="icon-colored"
-              />
-            </div>
-            <div class="icon-outlined second-boxes">
-              <img src="./assets/icons/1.svg" alt="" class="icon-default" />
-              <img
-                src="./assets/icons/1_color.svg"
-                alt=""
-                class="icon-colored"
-              />
-            </div>
-          </div>
-          <div class="second-main">
-            <svg
-              id="second-line-1"
-              viewBox="0 0 145 74"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              class="side-line second-svg-side"
-            >
-              <path
-                d="M2.30469 73.7969V2.79688H144.305"
-                stroke="#EFA63E"
-                stroke-width="3.65863"
-              />
-            </svg>
-            <svg
-              id="second-line-2"
-              viewBox="0 0 145 74"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              class="side-line second-svg-side"
-            >
-              <path
-                d="M2.30469 73.7969V2.79688H144.305"
-                stroke="#EFA63E"
-                stroke-width="3.65863"
-              />
-            </svg>
-            <svg
-              id="second-line-3"
-              viewBox="0 0 145 74"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              class="side-line second-svg-side"
-            >
-              <path
-                d="M2.30469 73.7969V2.79688H144.305"
-                stroke="#EFA63E"
-                stroke-width="3.65863"
-              />
-            </svg>
-            <svg
-              id="second-line-4"
-              viewBox="0 0 145 74"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              class="side-line second-svg-side"
-            >
-              <path
-                d="M2.30469 73.7969V2.79688H144.305"
-                stroke="#EFA63E"
-                stroke-width="3.65863"
-              />
-            </svg>
-            <img
-              src="./assets/images/mobile.svg"
-              alt="mobile_img"
-              class="second-mobile-img"
-            />
-            <svg
-              viewBox="0 0 521 985"
-              class="mobile-border-svg second-svg-main"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect
-                x="2.06055"
-                y="2.28711"
-                width="516"
-                height="980"
-                rx="68"
-                stroke="url(#paint0_linear_107_3887)"
-                stroke-width="4"
-              />
-              <defs>
-                <linearGradient
-                  id="paint0_linear_107_3887"
-                  x1="260.061"
-                  y1="0.287109"
-                  x2="260.061"
-                  y2="984.287"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop stop-color="#000" />
-                  <stop offset="0.504808" stop-color="#EFA63E" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
-          <div class="buttons-right">
-            <div class="icon-outlined second-boxes">
-              <img src="./assets/icons/1.svg" alt="" class="icon-default" />
-              <img
-                src="./assets/icons/1_color.svg"
-                alt=""
-                class="icon-colored"
-              />
-            </div>
-            <div class="icon-outlined second-boxes">
-              <img src="./assets/icons/1.svg" alt="" class="icon-default" />
-              <img
-                src="./assets/icons/1_color.svg"
-                alt=""
-                class="icon-colored"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="third-animation-container">
-        <div class="third-left">
+        <div class="text-section" data-anim="third">
           <div class="third-icon-row">
             <img
               src="./assets/icons/v_icon.svg"
@@ -326,194 +176,7 @@
           </p>
           <button class="third-learn-btn">Learn More</button>
         </div>
-
-        <div class="third-right">
-          <div class="third-icons-top">
-            <div class="icon-outlined third-boxes">
-              <img src="./assets/icons/2.svg" alt="" class="icon-outline" />
-              <img
-                src="./assets/icons/2_color.svg"
-                alt=""
-                class="icon-colored"
-              />
-            </div>
-            <div class="icon-outlined third-boxes">
-              <img src="./assets/icons/2.svg" alt="" class="icon-outline" />
-              <img
-                src="./assets/icons/2_color.svg"
-                alt=""
-                class="icon-colored"
-              />
-            </div>
-          </div>
-
-          <svg
-            id="third-path1"
-            class="third-svg-top svg-pipeline"
-            viewBox="0 0 107 160"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M105.061 130L105.061 1.38428L0.0605479 1.38428"
-              stroke="url(#third-paint1)"
-              stroke-width="2.74397"
-            />
-            <defs>
-              <linearGradient
-                id="third-paint1"
-                x1="52.5605"
-                y1="160"
-                x2="52.5606"
-                y2="1.38428"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop offset="0.355769" stop-color="#FF9600" />
-                <stop offset="1" stop-color="#EFA63E" />
-              </linearGradient>
-            </defs>
-          </svg>
-
-          <svg
-            id="third-path2"
-            class="third-svg-top svg-pipeline"
-            viewBox="0 0 107 160"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M105.061 130L105.061 1.38428L0.0605479 1.38428"
-              stroke="url(#third-paint1)"
-              stroke-width="2.74397"
-            />
-            <defs>
-              <linearGradient
-                id="third-paint1"
-                x1="52.5605"
-                y1="160"
-                x2="52.5606"
-                y2="1.38428"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop offset="0.355769" stop-color="#FF9600" />
-                <stop offset="1" stop-color="#EFA63E" />
-              </linearGradient>
-            </defs>
-          </svg>
-
-          <div class="third-image-wrapper">
-            <img
-              src="./assets/images/3rd_animation_image.svg"
-              alt="animation_image"
-              class="third-anim-img"
-            />
-            <svg
-              id="third-path1"
-              class="third-svg-main svg-pipeline"
-              viewBox="0 0 751 424"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect
-                x="1.06152"
-                y="1.38477"
-                width="748"
-                height="421"
-                rx="39"
-                stroke="url(#third-paint2)"
-                stroke-width="4"
-              />
-              <defs>
-                <linearGradient
-                  id="third-paint2"
-                  x1="375.062"
-                  y1="0.384766"
-                  x2="375.062"
-                  y2="423.385"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop offset="0.5" stop-color="#EFA63E" />
-                  <stop offset="1" />
-                </linearGradient>
-              </defs>
-            </svg>
-          </div>
-
-          <svg
-            id="third-path3"
-            class="third-svg-top svg-pipeline"
-            viewBox="0 0 107 160"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M105.061 130L105.061 1.38428L0.0605479 1.38428"
-              stroke="url(#third-paint1)"
-              stroke-width="2.74397"
-            />
-            <defs>
-              <linearGradient
-                id="third-paint1"
-                x1="52.5605"
-                y1="160"
-                x2="52.5606"
-                y2="1.38428"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop offset="0.355769" stop-color="#FF9600" />
-                <stop offset="1" stop-color="#EFA63E" />
-              </linearGradient>
-            </defs>
-          </svg>
-
-          <svg
-            id="third-path4"
-            class="third-svg-top svg-pipeline"
-            viewBox="0 0 107 160"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M105.061 130L105.061 1.38428L0.0605479 1.38428"
-              stroke="url(#third-paint1)"
-              stroke-width="2.74397"
-            />
-            <defs>
-              <linearGradient
-                id="third-paint1"
-                x1="52.5605"
-                y1="160"
-                x2="52.5606"
-                y2="1.38428"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop offset="0.355769" stop-color="#FF9600" />
-                <stop offset="1" stop-color="#EFA63E" />
-              </linearGradient>
-            </defs>
-          </svg>
-          <div class="third-icons-bottom">
-            <div class="icon-outlined third-boxes">
-              <img src="./assets/icons/2.svg" alt="" class="icon-outline" />
-              <img
-                src="./assets/icons/2_color.svg"
-                alt=""
-                class="icon-colored"
-              />
-            </div>
-            <div class="icon-outlined third-boxes">
-              <img src="./assets/icons/2.svg" alt="" class="icon-outline" />
-              <img
-                src="./assets/icons/2_color.svg"
-                alt=""
-                class="icon-colored"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="fourth-animation-container">
-        <div class="fourth-left">
+        <div class="text-section" data-anim="fourth">
           <div class="fourth-icon-row">
             <img
               src="./assets/icons/v_icon.svg"
@@ -529,186 +192,593 @@
           </p>
           <button class="fourth-learn-btn">Learn More</button>
         </div>
+      </div>
 
-        <div class="fourth-right">
-          <div class="fourth-icons-top">
-            <div class="icon-outlined fourth-boxes">
-              <img src="./assets/icons/2.svg" alt="" class="icon-outline" />
-              <img
-                src="./assets/icons/2_color.svg"
-                alt=""
-                class="icon-colored"
-              />
-            </div>
-            <div class="icon-outlined fourth-boxes">
-              <img src="./assets/icons/2.svg" alt="" class="icon-outline" />
-              <img
-                src="./assets/icons/2_color.svg"
-                alt=""
-                class="icon-colored"
-              />
-            </div>
-          </div>
-
-          <svg
-            id="fourth-path1"
-            class="fourth-svg-top svg-pipeline"
-            viewBox="0 0 107 160"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M105.061 130L105.061 1.38428L0.0605479 1.38428"
-              stroke="url(#third-paint1)"
-              stroke-width="2.74397"
-            />
-            <defs>
-              <linearGradient
-                id="third-paint1"
-                x1="52.5605"
-                y1="160"
-                x2="52.5606"
-                y2="1.38428"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop offset="0.355769" stop-color="#FF9600" />
-                <stop offset="1" stop-color="#EFA63E" />
-              </linearGradient>
-            </defs>
-          </svg>
-          <svg
-            id="fourth-path2"
-            class="fourth-svg-top svg-pipeline"
-            viewBox="0 0 107 160"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M105.061 130L105.061 1.38428L0.0605479 1.38428"
-              stroke="url(#third-paint1)"
-              stroke-width="2.74397"
-            />
-            <defs>
-              <linearGradient
-                id="third-paint1"
-                x1="52.5605"
-                y1="160"
-                x2="52.5606"
-                y2="1.38428"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop offset="0.355769" stop-color="#FF9600" />
-                <stop offset="1" stop-color="#EFA63E" />
-              </linearGradient>
-            </defs>
-          </svg>
-
-          <div class="fourth-image-wrapper">
-            <img
-              src="./assets/images/3rd_animation_image.svg"
-              alt="animation_image"
-              class="fourth-anim-img"
-            />
-            <svg
-              class="fourth-svg-main svg-pipeline"
-              viewBox="0 0 751 424"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect
-                x="1.06152"
-                y="1.38477"
-                width="748"
-                height="421"
-                rx="39"
-                stroke="url(#fourth-paint2)"
-                stroke-width="4"
-              />
-              <defs>
-                <linearGradient
-                  id="fourth-paint2"
-                  x1="375.062"
-                  y1="0.384766"
-                  x2="375.062"
-                  y2="423.385"
-                  gradientUnits="userSpaceOnUse"
+      <!-- RIGHT: Animations Panel -->
+      <div class="right-sticky">
+        <div class="anim-panel">
+          <!-- FIRST ANIMATION -->
+          <div class="anim anim-first active" id="anim-first">
+            <div class="first-animation-container">
+              <div class="wrapper right-section" style="position: relative">
+                <div class="grid-container" id="box-grid"></div>
+                <svg
+                  id="connector-svg"
+                  style="
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    width: 100%;
+                    height: 100%;
+                    pointer-events: none;
+                    z-index: 1;
+                  "
                 >
-                  <stop offset="0.5" stop-color="#EFA63E" />
-                  <stop offset="1" />
-                </linearGradient>
-              </defs>
-            </svg>
+                  <defs>
+                    <linearGradient
+                      id="lineGradient"
+                      x1="0%"
+                      y1="0%"
+                      x2="100%"
+                      y2="0%"
+                    >
+                      <stop offset="0%" stop-color="#3db0a0" />
+                      <stop offset="33%" stop-color="#d45d51" />
+                      <stop offset="66%" stop-color="#ffbd8a" />
+                      <stop offset="100%" stop-color="#f1991d" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <!-- SECOND ANIMATION -->
+          <div class="anim anim-second" id="anim-second">
+            <div class="second-animation-container">
+              <div
+                class="second-right-section"
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  gap: 60px;
+                  position: relative;
+                "
+              >
+                <div
+                  class="second-main"
+                  id="secondMain"
+                  style="
+                    position: relative;
+                    min-width: 566px;
+                    min-height: 520px;
+                    width: 400px;
+                    max-width: 540px;
+                  "
+                >
+                  <!-- SINGLE dynamic path -->
+                  <svg
+                    class="second-connector-svg"
+                    id="secondConnectorSvg"
+                    style="
+                      position: absolute;
+                      inset: 0;
+                      z-index: 2;
+                      pointer-events: none;
+                    "
+                  >
+                    <defs>
+                      <linearGradient
+                        id="second-gradient"
+                        x1="0%"
+                        y1="0%"
+                        x2="100%"
+                        y2="100%"
+                      >
+                        <stop offset="0%" stop-color="#000" />
+                        <stop offset="100%" stop-color="#EFA63E" />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      id="second-connector-path"
+                      stroke="url(#second-gradient)"
+                      stroke-width="2.5"
+                      fill="none"
+                      opacity="0"
+                    />
+                  </svg>
+
+                  <!-- Phone border (give rect an id) -->
+                  <svg
+                    viewBox="0 0 521 985"
+                    class="mobile-border-svg second-svg-main"
+                    style="
+                      position: absolute;
+                      left: 50%;
+                      top: 50%;
+                      width: 65%;
+                      height: 102%;
+                      transform: translate(-50%, -50%);
+                      z-index: 3;
+                      pointer-events: none;
+                    "
+                    fill="none"
+                  >
+                    <rect
+                      id="secondPhoneBorderRect"
+                      x="2.06055"
+                      y="2.28711"
+                      width="516"
+                      height="980"
+                      rx="68"
+                      stroke="url(#paint0_linear_107_3887)"
+                      stroke-width="4"
+                    />
+                    <defs>
+                      <linearGradient
+                        id="paint0_linear_107_3887"
+                        x1="260.061"
+                        y1="0.287109"
+                        x2="260.061"
+                        y2="984.287"
+                        gradientUnits="userSpaceOnUse"
+                      >
+                        <stop stop-color="#000" />
+                        <stop offset="0.504808" stop-color="#EFA63E" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+
+                  <!-- Phone image -->
+                  <img
+                    src="./assets/images/mobile.svg"
+                    alt="mobile_img"
+                    class="second-mobile-img"
+                    id="secondPhoneImg"
+                    style="
+                      position: absolute;
+                      left: 50%;
+                      top: 50%;
+                      width: 80%;
+                      height: 100%;
+                      max-width: 520px;
+                      transform: translate(-50%, -50%);
+                      z-index: 4;
+                    "
+                  />
+
+                  <!-- Boxes (added ids) -->
+                  <div
+                    class="icon-outlined second-boxes"
+                    id="secondBoxLeftTop"
+                    data-pos="left-top"
+                    style="
+                      position: absolute;
+                      left: 0;
+                      top: 62px;
+                      width: 62px;
+                      height: 62px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      border-radius: 16px;
+                      background: #f6f9fd;
+                    "
+                  >
+                    <img
+                      src="./assets/icons/1.svg"
+                      alt=""
+                      class="icon-default"
+                    />
+                    <img
+                      src="./assets/icons/1_color.svg"
+                      alt=""
+                      class="icon-colored"
+                    />
+                  </div>
+
+                  <div
+                    class="icon-outlined second-boxes"
+                    id="secondBoxLeftBottom"
+                    data-pos="left-bottom"
+                    style="
+                      position: absolute;
+                      left: 0;
+                      bottom: 62px;
+                      width: 62px;
+                      height: 62px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      border-radius: 16px;
+                      background: #f6f9fd;
+                    "
+                  >
+                    <img
+                      src="./assets/icons/2.svg"
+                      alt=""
+                      class="icon-default"
+                    />
+                    <img
+                      src="./assets/icons/2_color.svg"
+                      alt=""
+                      class="icon-colored"
+                    />
+                  </div>
+
+                  <div
+                    class="icon-outlined second-boxes"
+                    id="secondBoxRightTop"
+                    data-pos="right-top"
+                    style="
+                      position: absolute;
+                      right: -5px;
+                      top: 62px;
+                      width: 62px;
+                      height: 62px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      border-radius: 16px;
+                      background: #f6f9fd;
+                    "
+                  >
+                    <img
+                      src="./assets/icons/3.svg"
+                      alt=""
+                      class="icon-default"
+                    />
+                    <img
+                      src="./assets/icons/3_color.svg"
+                      alt=""
+                      class="icon-colored"
+                    />
+                  </div>
+
+                  <div
+                    class="icon-outlined second-boxes"
+                    id="secondBoxRightBottom"
+                    data-pos="right-bottom"
+                    style="
+                      position: absolute;
+                      right: -5px;
+                      bottom: 62px;
+                      width: 62px;
+                      height: 62px;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                      border-radius: 16px;
+                      background: #f6f9fd;
+                    "
+                  >
+                    <img
+                      src="./assets/icons/2.svg"
+                      alt=""
+                      class="icon-default"
+                    />
+                    <img
+                      src="./assets/icons/2_color.svg"
+                      alt=""
+                      class="icon-colored"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- THIRD ANIMATION -->
+          <div class="anim anim-third" id="anim-third">
+            <div class="third-animation-container">
+              <div
+                class="third-right"
+                style="
+                  position: relative;
+                  min-width: 566px;
+                  min-height: 520px;
+                  width: 400px;
+                  max-width: 540px;
+                "
+              >
+                <svg
+                  class="third-connector-svg"
+                  width="100%"
+                  height="100%"
+                  style="
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 2;
+                    pointer-events: none;
+                  "
+                >
+                  <defs>
+                    <linearGradient
+                      id="third-gradient-1"
+                      x1="0%"
+                      y1="0%"
+                      x2="100%"
+                      y2="100%"
+                    >
+                      <stop offset="0%" stop-color="#000" />
+                      <stop offset="100%" stop-color="#EFA63E" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    id="third-connector-path"
+                    stroke="url(#third-gradient-1)"
+                    stroke-width="2"
+                    fill="none"
+                    opacity="0"
+                  />
+                </svg>
+
+                <div class="third-icons-top">
+                  <div
+                    class="icon-outlined third-boxes"
+                    data-pos="top-left"
+                    data-line-id="third-path1"
+                  >
+                    <img
+                      src="./assets/icons/2.svg"
+                      alt=""
+                      class="icon-outline"
+                    />
+                    <img
+                      src="./assets/icons/2_color.svg"
+                      alt=""
+                      class="icon-colored"
+                    />
+                  </div>
+                  <div
+                    class="icon-outlined third-boxes"
+                    data-pos="top-right"
+                    data-line-id="third-path2"
+                  >
+                    <img
+                      src="./assets/icons/2.svg"
+                      alt=""
+                      class="icon-outline"
+                    />
+                    <img
+                      src="./assets/icons/2_color.svg"
+                      alt=""
+                      class="icon-colored"
+                    />
+                  </div>
+                </div>
+
+                <div class="third-image-wrapper">
+                  <img
+                    src="./assets/images/3rd_animation_image.svg"
+                    alt="animation_image"
+                    class="third-anim-img"
+                  />
+                  <svg
+                    id="third-path-main"
+                    class="third-svg-main svg-pipeline"
+                    viewBox="0 0 751 424"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      x="1.06152"
+                      y="1.38477"
+                      width="748"
+                      height="421"
+                      rx="39"
+                      stroke="url(#third-paint2)"
+                      stroke-width="4"
+                    />
+                    <defs>
+                      <linearGradient
+                        id="third-paint2"
+                        x1="375.062"
+                        y1="0.384766"
+                        x2="375.062"
+                        y2="423.385"
+                        gradientUnits="userSpaceOnUse"
+                      >
+                        <stop offset="0.5" stop-color="#EFA63E" />
+                        <stop offset="1" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+
+                <div class="third-icons-bottom">
+                  <div
+                    class="icon-outlined third-boxes"
+                    data-pos="bottom-left"
+                    data-line-id="third-path3"
+                  >
+                    <img
+                      src="./assets/icons/2.svg"
+                      alt=""
+                      class="icon-outline"
+                    />
+                    <img
+                      src="./assets/icons/2_color.svg"
+                      alt=""
+                      class="icon-colored"
+                    />
+                  </div>
+                  <div
+                    class="icon-outlined third-boxes"
+                    data-pos="bottom-right"
+                    data-line-id="third-path4"
+                  >
+                    <img
+                      src="./assets/icons/2.svg"
+                      alt=""
+                      class="icon-outline"
+                    />
+                    <img
+                      src="./assets/icons/2_color.svg"
+                      alt=""
+                      class="icon-colored"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <svg
-            id="fourth-path3"
-            class="fourth-svg-top svg-pipeline"
-            viewBox="0 0 107 160"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M105.061 130L105.061 1.38428L0.0605479 1.38428"
-              stroke="url(#third-paint1)"
-              stroke-width="2.74397"
-            />
-            <defs>
-              <linearGradient
-                id="third-paint1"
-                x1="52.5605"
-                y1="160"
-                x2="52.5606"
-                y2="1.38428"
-                gradientUnits="userSpaceOnUse"
+          <!-- FOURTH ANIMATION -->
+          <div class="anim anim-fourth" id="anim-fourth">
+            <div class="fourth-animation-container">
+              <div
+                class="fourth-right"
+                style="
+                  position: relative;
+                  min-width: 566px;
+                  min-height: 520px;
+                  width: 400px;
+                  max-width: 540px;
+                "
               >
-                <stop offset="0.355769" stop-color="#FF9600" />
-                <stop offset="1" stop-color="#EFA63E" />
-              </linearGradient>
-            </defs>
-          </svg>
-          <svg
-            id="fourth-path4"
-            class="fourth-svg-top svg-pipeline"
-            viewBox="0 0 107 160"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M105.061 130L105.061 1.38428L0.0605479 1.38428"
-              stroke="url(#third-paint1)"
-              stroke-width="2.74397"
-            />
-            <defs>
-              <linearGradient
-                id="third-paint1"
-                x1="52.5605"
-                y1="160"
-                x2="52.5606"
-                y2="1.38428"
-                gradientUnits="userSpaceOnUse"
-              >
-                <stop offset="0.355769" stop-color="#FF9600" />
-                <stop offset="1" stop-color="#EFA63E" />
-              </linearGradient>
-            </defs>
-          </svg>
+                <svg
+                  class="fourth-connector-svg"
+                  width="100%"
+                  height="100%"
+                  style="
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 2;
+                    pointer-events: none;
+                  "
+                >
+                  <defs>
+                    <linearGradient
+                      id="fourth-gradient-1"
+                      x1="0%"
+                      y1="0%"
+                      x2="100%"
+                      y2="100%"
+                    >
+                      <stop offset="0%" stop-color="#000" />
+                      <stop offset="100%" stop-color="#EFA63E" />
+                    </linearGradient>
+                  </defs>
+                  <path
+                    id="fourth-connector-path"
+                    stroke="url(#fourth-gradient-1)"
+                    stroke-width="2"
+                    fill="none"
+                    opacity="0"
+                  />
+                </svg>
 
-          <div class="fourth-icons-bottom">
-            <div class="icon-outlined fourth-boxes">
-              <img src="./assets/icons/2.svg" alt="" class="icon-outline" />
-              <img
-                src="./assets/icons/2_color.svg"
-                alt=""
-                class="icon-colored"
-              />
-            </div>
-            <div class="icon-outlined fourth-boxes">
-              <img src="./assets/icons/2.svg" alt="" class="icon-outline" />
-              <img
-                src="./assets/icons/2_color.svg"
-                alt=""
-                class="icon-colored"
-              />
+                <div class="fourth-icons-top">
+                  <div
+                    class="icon-outlined fourth-boxes"
+                    data-pos="top-left"
+                    data-line-id="fourth-path1"
+                  >
+                    <img
+                      src="./assets/icons/3.svg"
+                      alt=""
+                      class="icon-outline"
+                    />
+                    <img
+                      src="./assets/icons/3_color.svg"
+                      alt=""
+                      class="icon-colored"
+                    />
+                  </div>
+                  <div
+                    class="icon-outlined fourth-boxes"
+                    data-pos="top-right"
+                    data-line-id="fourth-path2"
+                  >
+                    <img
+                      src="./assets/icons/2.svg"
+                      alt=""
+                      class="icon-outline"
+                    />
+                    <img
+                      src="./assets/icons/2_color.svg"
+                      alt=""
+                      class="icon-colored"
+                    />
+                  </div>
+                </div>
+
+                <div class="fourth-image-wrapper">
+                  <img
+                    src="./assets/images/3rd_animation_image.svg"
+                    alt="animation_image"
+                    class="fourth-anim-img"
+                  />
+
+                  <svg
+                    id="fourth-path-main"
+                    class="fourth-svg-main svg-pipeline"
+                    viewBox="0 0 751 424"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <rect
+                      x="1.06152"
+                      y="1.38477"
+                      width="748"
+                      height="421"
+                      rx="39"
+                      stroke="url(#fourth-paint2)"
+                      stroke-width="4"
+                    />
+                    <defs>
+                      <linearGradient
+                        id="fourth-paint2"
+                        x1="375.062"
+                        y1="0.384766"
+                        x2="375.062"
+                        y2="423.385"
+                        gradientUnits="userSpaceOnUse"
+                      >
+                        <stop offset="0.5" stop-color="#EFA63E" />
+                        <stop offset="1" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                </div>
+
+                <div class="fourth-icons-bottom">
+                  <div
+                    class="icon-outlined fourth-boxes"
+                    data-pos="bottom-left"
+                    data-line-id="fourth-path3"
+                  >
+                    <img
+                      src="./assets/icons/2.svg"
+                      alt=""
+                      class="icon-outline"
+                    />
+                    <img
+                      src="./assets/icons/2_color.svg"
+                      alt=""
+                      class="icon-colored"
+                    />
+                  </div>
+                  <div
+                    class="icon-outlined fourth-boxes"
+                    data-pos="bottom-right"
+                    data-line-id="fourth-path4"
+                  >
+                    <img
+                      src="./assets/icons/1.svg"
+                      alt=""
+                      class="icon-outline"
+                    />
+                    <img
+                      src="./assets/icons/1_color.svg"
+                      alt=""
+                      class="icon-colored"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -738,6 +808,13 @@
 
     <!-- Solutions Section -->
     <section class="solutions-section">
+      <div class="solution-canvas-container">
+        <canvas
+          id="solution-gradient-canvas"
+          class="solution-canvas"
+          style="width: 100vw"
+        ></canvas>
+      </div>
       <div class="solutions-container">
         <h2>Solutions That Matter</h2>
         <div class="solution-card-grid" id="sectionCardContainer">
@@ -1144,6 +1221,9 @@
     <script>
       var gradient = new Gradient();
       gradient.initGradient("#gradient-canvas");
+
+      var solutionGradient = new Gradient();
+      solutionGradient.initGradient("#solution-gradient-canvas");
     </script>
   </body>
 </html>
