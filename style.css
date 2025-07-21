@@ -1331,8 +1331,6 @@ canvas {
   display: grid;
   grid-template-columns: 1fr;
   gap: 2.5rem 2rem;
-  place-content: center;
-  justify-content: center;
 }
 
 .column-1 {
