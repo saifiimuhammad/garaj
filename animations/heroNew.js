@@ -379,7 +379,7 @@ function initAnimation() {
     );
     pathEl.setAttribute("fill", "none");
     pathEl.setAttribute("stroke", "url(#lineGradient)");
-    pathEl.setAttribute("stroke-width", "4");
+    pathEl.setAttribute("stroke-width", "3");
     pathEl.setAttribute("stroke-linejoin", "round");
     pathEl.setAttribute("stroke-linecap", "round");
 

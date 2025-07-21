@@ -539,11 +539,11 @@ canvas {
 
 @media (min-width: 1200px) {
   .hero-content h1 {
-    font-size: 4.4rem;
+    font-size: 4.04rem;
   }
 
   .hero-content h2 {
-    font-size: 4.4rem;
+    font-size: 4.04rem;
   }
 }
 
@@ -615,7 +615,7 @@ canvas {
 @media (min-width: 1024px) {
   .hero-img {
     position: absolute;
-    top: 12rem;
+    top: 11rem;
     right: -1;
     left: auto;
     margin-top: 0;
@@ -638,7 +638,13 @@ canvas {
 
 @media (min-width: 1024px) {
   .hero-img img {
-    width: 100%;
+    width: 30rem;
+  }
+}
+
+@media (min-width: 1300px) {
+  .hero-img img {
+    width: 40rem;
     max-width: 40rem;
   }
 }

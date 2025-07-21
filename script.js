@@ -92,9 +92,17 @@ accordians.forEach((title) => {
   const btn = acc.querySelector(".accordion-button");
   const icon = acc.querySelector(".accordion-icon");
 
-  btn.addEventListener("click", () => {
+  btn.addEventListener("mouseenter", () => {
     const isOpen = acc.classList.contains("open");
-    acc.classList.toggle("open");
+    acc.classList.add("open");
+
+    icon.innerHTML = isOpen
+      ? '<img src="./assets/icons/arrow-down.svg" alt="arrow down" />'
+      : '<img src="./assets/icons/arrow-down.svg" alt="arrow down" class="arrow-up" />';
+  });
+  btn.addEventListener("mouseleave", () => {
+    const isOpen = acc.classList.contains("open");
+    acc.classList.remove("open");
 
     icon.innerHTML = isOpen
       ? '<img src="./assets/icons/arrow-down.svg" alt="arrow down" />'
