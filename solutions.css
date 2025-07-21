@@ -11,7 +11,7 @@
 }
 
 .solution-canvas-container > canvas {
-  height: 115vh;
+  height: 850px;
 }
 
 #solution-gradient-canvas {
@@ -145,72 +145,84 @@
 
 @media screen and (max-width: 1200px) {
   .solution-canvas-container > canvas {
-    height: 125vh;
+    height: 920px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  .solution-canvas-container > canvas {
+    height: 980px;
   }
 }
 
 @media screen and (max-width: 1000px) {
   .solution-canvas-container > canvas {
-    height: 150vh;
+    height: 1080px;
   }
 }
 
 @media screen and (max-width: 850px) {
   .solution-canvas-container > canvas {
-    height: 155vh;
+    height: 1150px;
   }
 }
 
 @media screen and (max-width: 700px) {
   .solution-canvas-container > canvas {
-    height: 165vh;
+    height: 1240px;
   }
 }
 
 @media screen and (max-width: 640px) {
   .solution-canvas-container > canvas {
-    height: 200vh;
+    height: 1480px;
   }
 }
 
 @media screen and (max-width: 570px) {
   .solution-canvas-container > canvas {
-    height: 210vh;
+    height: 1550px;
   }
 }
 
 @media screen and (max-width: 464px) {
   .solution-canvas-container > canvas {
-    height: 225vh;
+    height: 1600px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .solution-canvas-container > canvas {
+    height: 1680px;
   }
 }
 
 @media screen and (max-width: 400px) {
   .solution-canvas-container > canvas {
-    height: 235vh;
+    height: 1720px;
   }
 }
 
 @media screen and (max-width: 360px) {
   .solution-canvas-container > canvas {
-    height: 245vh;
+    height: 1780px;
   }
 }
 
 @media screen and (max-width: 340px) {
   .solution-canvas-container > canvas {
-    height: 255vh;
+    height: 1900px;
   }
 }
 
 @media screen and (max-width: 320px) {
   .solution-canvas-container > canvas {
-    height: 265vh;
+    height: 1980px;
   }
 }
 
 @media screen and (max-width: 300px) {
   .solution-canvas-container > canvas {
-    height: 275vh;
+    height: 2050px;
   }
 }
