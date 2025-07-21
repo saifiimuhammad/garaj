@@ -383,13 +383,42 @@ function initAnimation() {
     pathEl.setAttribute("stroke-linejoin", "round");
     pathEl.setAttribute("stroke-linecap", "round");
 
+    // let d = `M${coords[0].x},${coords[0].y}`;
+    // for (let i = 1; i < coords.length; i++) {
+    //   const prev = coords[i - 1];
+    //   const curr = coords[i];
+    //   if (prev.x !== curr.x) d += ` L${curr.x},${prev.y}`;
+    //   if (prev.y !== curr.y) d += ` L${curr.x},${curr.y}`;
+    // }
     let d = `M${coords[0].x},${coords[0].y}`;
-    for (let i = 1; i < coords.length; i++) {
+    const radius = 10; // You can adjust this value for more or less roundness
+
+    for (let i = 1; i < coords.length - 1; i++) {
       const prev = coords[i - 1];
       const curr = coords[i];
-      if (prev.x !== curr.x) d += ` L${curr.x},${prev.y}`;
-      if (prev.y !== curr.y) d += ` L${curr.x},${curr.y}`;
+      const next = coords[i + 1];
+
+      const dx1 = curr.x - prev.x;
+      const dy1 = curr.y - prev.y;
+      const dx2 = next.x - curr.x;
+      const dy2 = next.y - curr.y;
+
+      const len1 = Math.hypot(dx1, dy1);
+      const len2 = Math.hypot(dx2, dy2);
+
+      const r = Math.min(radius, len1 / 2, len2 / 2);
+
+      const x1 = curr.x - (dx1 / len1) * r;
+      const y1 = curr.y - (dy1 / len1) * r;
+      const x2 = curr.x + (dx2 / len2) * r;
+      const y2 = curr.y + (dy2 / len2) * r;
+
+      d += ` L${x1},${y1} Q${curr.x},${curr.y} ${x2},${y2}`;
     }
+
+    // Final straight line to last point
+    d += ` L${coords[coords.length - 1].x},${coords[coords.length - 1].y}`;
+
     pathEl.setAttribute("d", d);
 
     // Animate the path (make slower for effect)
