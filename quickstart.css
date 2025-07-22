@@ -101,12 +101,12 @@
 /* Desktop */
 @media (min-width: 1024px) {
   .quickstart-section {
-    padding-block: 10rem;
+    padding-block: 8rem;
   }
 
   .quickstart-content {
     position: absolute;
-    padding-inline: 9rem;
+    padding-inline: 8rem;
     text-align: left;
   }
 
@@ -149,13 +149,13 @@
 
 @media (min-width: 1024px) {
   .quickstart-points-container {
-    padding: 2rem;
+    padding-inline: 8rem;
   }
   .quickstart-2 {
     bottom: 10rem;
   }
   .quickstart-3 {
-    bottom: 18rem;
+    bottom: 17rem;
   }
 }
 
@@ -172,14 +172,17 @@
 }
 
 @media (min-width: 1440px) {
+  .quickstart-content {
+    padding-inline: 14rem;
+  }
   .quickstart-points-container {
-    padding-inline: 8rem;
+    padding-inline: 14rem;
   }
   .quickstart-2 {
     bottom: 14rem;
   }
   .quickstart-3 {
-    bottom: 24rem;
+    bottom: 22rem;
   }
 }
 

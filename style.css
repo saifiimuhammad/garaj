@@ -332,6 +332,12 @@ header {
   }
 }
 
+@media (min-width: 1400px) {
+  header {
+    padding-inline: 13rem;
+  }
+}
+
 header.bg-white {
   background-color: white;
 }
@@ -485,6 +491,12 @@ canvas {
     padding: 10rem 8rem 6rem;
     min-height: 90vh;
     align-items: center;
+  }
+}
+
+@media (min-width: 1400px) {
+  .hero {
+    padding-inline: 14rem;
   }
 }
 
@@ -732,6 +744,12 @@ canvas {
   }
 }
 
+@media (min-width: 1400px) {
+  .features {
+    padding-inline: 14rem;
+  }
+}
+
 .features h2 {
   font-size: 1.875rem; /* text-3xl = 30px */
   font-weight: 600;
@@ -930,6 +948,12 @@ canvas {
   }
 }
 
+@media (min-width: 1400px) {
+  .about-section {
+    padding-inline: 14rem;
+  }
+}
+
 .left,
 .right {
   flex: 1;
@@ -1075,6 +1099,12 @@ canvas {
   .customer-section {
     padding-left: 8rem;
     padding-right: 8rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .customer-section {
+    padding-inline: 14rem;
   }
 }
 
@@ -1272,6 +1302,12 @@ canvas {
   }
 }
 
+@media (min-width: 1400px) {
+  .partners-section {
+    padding-inline: 14rem;
+  }
+}
+
 .partners-section h2 {
   font-size: 1.875rem;
   font-weight: 600;
@@ -1371,6 +1407,12 @@ canvas {
   .footer {
     padding-left: 8rem;
     padding-right: 8rem;
+  }
+}
+
+@media (min-width: 1400px) {
+  .footer {
+    padding-inline: 14rem;
   }
 }
 

@@ -140,7 +140,20 @@ function buildLPathForBox(boxEl) {
   // Push further *inside* phone by H_INSET
   phoneEdgeX += isLeft ? H_INSET : -H_INSET;
 
-  return `M ${startX} ${startY} L ${startX} ${busY} L ${phoneEdgeX} ${busY}`;
+  // return `M ${startX} ${startY} L ${startX} ${busY} L ${phoneEdgeX} ${busY}`;
+  const radius = 12; // Adjust roundness here
+
+  const verticalEndY = busY - (startY < busY ? radius : -radius);
+  const horizontalStartX = startX + (phoneEdgeX < startX ? -radius : radius);
+
+  const d = `
+  M ${startX} ${startY}
+  L ${startX} ${verticalEndY}
+  Q ${startX} ${busY} ${horizontalStartX} ${busY}
+  L ${phoneEdgeX} ${busY}
+`.trim();
+
+  return d;
 }
 
 /* ---------- Intro (first line starts, then image & outline appear, outline hides) ---------- */

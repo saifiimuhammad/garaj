@@ -57,6 +57,12 @@
   }
 }
 
+@media (min-width: 1400px) {
+  .solutions-container {
+    padding-inline: 14rem;
+  }
+}
+
 .solutions-section h2 {
   font-size: 1.875rem;
   font-weight: 600;
