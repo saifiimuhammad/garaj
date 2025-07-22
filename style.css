@@ -782,6 +782,11 @@ canvas {
   place-items: center;
   background-color: white;
   cursor: pointer;
+  border: 2px solid black;
+}
+
+.feature-btn:hover {
+  scale: 1.02;
 }
 
 .feature-btn-1 {
@@ -800,7 +805,9 @@ canvas {
   display: grid;
   grid-template-columns: 1fr;
   gap: 3rem; /* gap-8 */
-  margin-top: 2.5rem; /* mt-10 */
+  margin-top: 1.5rem; /* mt-10 */
+  padding: 0.25rem;
+  scroll-behavior: smooth;
 }
 
 @media (min-width: 640px) {
@@ -832,7 +839,8 @@ canvas {
 }
 
 .card:hover {
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  scale: 1.01;
 }
 
 .card span {
@@ -867,7 +875,7 @@ canvas {
   font-size: 0.875rem;
   color: var(--gray-700);
   margin-top: 1rem;
-  line-height: 1.35rem;
+  line-height: 1.5rem;
 }
 
 @media (min-width: 640px) {
@@ -891,7 +899,7 @@ canvas {
 }
 
 .card button:hover {
-  color: var(--amber-500);
+  color: #eb9500;
   transition: color 0.15s ease-in;
 }
 
@@ -909,6 +917,34 @@ canvas {
 @media (min-width: 640px) {
   .card button img {
     width: 1.25rem;
+  }
+}
+
+@media (min-width: 640px) {
+  .card-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-block: 1rem;
+  }
+
+  .card-grid::-webkit-scrollbar {
+    width: 0;
+  }
+
+  .card {
+    /* min-width: 100%;
+  flex-shrink: 0; */
+  }
+
+  .card {
+    min-width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    min-width: 33.3333%;
   }
 }
 
@@ -1581,13 +1617,31 @@ canvas {
 }
 
 .core-title {
-  font-size: 3.375rem; /* Or 3.375rem */
+  font-size: 2.75rem; /* Or 3.375rem */
   font-weight: 600;
   letter-spacing: -0.025em;
   font-family: "Century Gothic", sans-serif;
   line-height: 1.12;
   margin-top: 1.5rem;
   color: #111; /* Match screenshot black */
+}
+
+@media (min-width: 1400px) {
+  .core-title {
+    font-size: 3.375rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .core-title {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .core-title {
+    font-size: 2.85rem;
+  }
 }
 
 /* @media (min-width: 640px) {

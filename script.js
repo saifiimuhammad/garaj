@@ -42,6 +42,7 @@ const cards = [
 ];
 
 const cardGrid = document.getElementById("cardGrid");
+let currentIndex = 0;
 
 cards.forEach(({ title, desc }) => {
   const card = document.createElement("div");
@@ -62,6 +63,16 @@ cards.forEach(({ title, desc }) => {
   cardGrid.appendChild(card);
 });
 
+const prevBtn = document.getElementById("prevBtn");
+const nextBtn = document.getElementById("nextBtn");
+
+nextBtn.addEventListener("click", () => {
+  cardGrid.scrollBy({ left: cardGrid.offsetWidth, behavior: "smooth" });
+});
+
+prevBtn.addEventListener("click", () => {
+  cardGrid.scrollBy({ left: -cardGrid.offsetWidth, behavior: "smooth" });
+});
 // -------------------- About Section ----------------------------
 
 const accordians = [
