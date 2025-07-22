@@ -1581,7 +1581,7 @@ canvas {
 }
 
 .core-title {
-  font-size: 54px; /* Or 3.375rem */
+  font-size: 3.375rem; /* Or 3.375rem */
   font-weight: 600;
   letter-spacing: -0.025em;
   font-family: "Century Gothic", sans-serif;
