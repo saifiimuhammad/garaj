@@ -311,11 +311,24 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 1.5rem;
+  padding-left: 1rem;
   background-image: linear-gradient(
     to bottom,
     rgba(255, 255, 255, 0.38),
     rgba(255, 255, 255, 0)
   );
+}
+
+@media (min-width: 640px) {
+  header {
+    padding-inline: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  header {
+    padding-inline: 7rem;
+  }
 }
 
 header.bg-white {
@@ -609,10 +622,9 @@ canvas {
   }
 }
 
-@media (min-width:1300px) {
+@media (min-width: 1300px) {
   .hero-content p {
     margin-top: 3rem;
-  
   }
   .hero-content button {
     margin-top: 3rem;
