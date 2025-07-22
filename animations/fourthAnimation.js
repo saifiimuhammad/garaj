@@ -2,7 +2,7 @@ const fourthImages = [
   "./assets/images/3rd_animation_image.svg", // index 0
   "./assets/images/3rd_animation_image.svg", // index 1
   "./assets/images/3rd_animation_image.svg", // index 2
-  "./assets/images/3rd_animation_image.svg"  // index 3
+  "./assets/images/3rd_animation_image.svg", // index 3
 ];
 
 let fourthAnimationStarted = false;
@@ -18,7 +18,7 @@ function resetFourthAnimation() {
   const boxes = document.querySelectorAll(".fourth-boxes");
   const mainPath = document.querySelector(".fourth-svg-main rect");
   const image = document.querySelector(".fourth-anim-img");
-  const connectorPath = document.getElementById('fourth-connector-path');
+  const connectorPath = document.getElementById("fourth-connector-path");
 
   // --- Kill all GSAP tweens/timelines ---
   if (fourthIntroTimeline) {
@@ -38,7 +38,7 @@ function resetFourthAnimation() {
 
   // --- Reset connector line ---
   if (connectorPath) {
-    connectorPath.setAttribute('d', '');
+    connectorPath.setAttribute("d", "");
     connectorPath.style.opacity = 0;
     connectorPath.style.strokeDasharray = 0;
     connectorPath.style.strokeDashoffset = 0;
@@ -50,7 +50,7 @@ function resetFourthAnimation() {
     gsap.set(mainPath, {
       opacity: 1,
       strokeDasharray: mainLength,
-      strokeDashoffset: mainLength
+      strokeDashoffset: mainLength,
     });
   }
 
@@ -83,91 +83,90 @@ function resetFourthAnimation() {
   fourthIntroRunning = false;
 }
 
-
 function drawFourthConnectorLine(boxEl, phoneEl) {
-  const svg = document.querySelector('.fourth-connector-svg');
-  const path = document.getElementById('fourth-connector-path');
+  const svg = document.querySelector(".fourth-connector-svg");
+  const path = document.getElementById("fourth-connector-path");
   if (!svg || !path || !boxEl || !phoneEl) return;
 
   // --- STATIC PATH FOR FIRST BOX ---
-   if (fourthIndex==0) {
+  if (fourthIndex == 0) {
     // Use the exact SVG path you provided (adjust as needed)
-    const d = 'M78.265 37.896 232.018 37.896 234.514 163.194';
-    path.setAttribute('d', d);
+    const d = "M78.265 37.896 232.018 37.896 234.514 163.194";
+    path.setAttribute("d", d);
     path.style.opacity = 1;
-    path.style.transition = 'none';
+    path.style.transition = "none";
     path.style.strokeDasharray = path.getTotalLength();
     path.style.strokeDashoffset = path.getTotalLength();
     return;
   }
 
-  console.log(thirdIndex)
-    if (fourthIndex==1) {
+  console.log(thirdIndex);
+  if (fourthIndex == 1) {
     // Use the exact SVG path you provided (adjust as needed)
-    const d = 'M328.289 40.296 464.003 39.519 466.336 169.4';
-    path.setAttribute('d', d);
+    const d = "M328.289 40.296 464.003 39.519 466.336 169.4";
+    path.setAttribute("d", d);
     path.style.opacity = 1;
-    path.style.transition = 'none';
+    path.style.transition = "none";
     path.style.strokeDasharray = path.getTotalLength();
     path.style.strokeDashoffset = path.getTotalLength();
     return;
   }
 
-      if (fourthIndex==2) {
+  if (fourthIndex == 2) {
     // Use the exact SVG path you provided (adjust as needed)
-    const d = 'M487.64 554.7 387.676 555.99 385.096 399.916';
-    path.setAttribute('d', d);
+    const d = "M487.64 554.7 387.676 555.99 385.096 399.916";
+    path.setAttribute("d", d);
     path.style.opacity = 1;
-    path.style.transition = 'none';
+    path.style.transition = "none";
     path.style.strokeDasharray = path.getTotalLength();
     path.style.strokeDashoffset = path.getTotalLength();
     return;
   }
-  
 
-  
-      if (fourthIndex==3) {
+  if (fourthIndex == 3) {
     // Use the exact SVG path you provided (adjust as needed)
-    const d = 'M211.609 554.7 83.912 555.99 84.557 397.336';
-    path.setAttribute('d', d);
+    const d = "M211.609 554.7 83.912 555.99 84.557 397.336";
+    path.setAttribute("d", d);
     path.style.opacity = 1;
-    path.style.transition = 'none';
+    path.style.transition = "none";
     path.style.strokeDasharray = path.getTotalLength();
     path.style.strokeDashoffset = path.getTotalLength();
     return;
   }
 
   // --- DYNAMIC PATH FOR OTHER BOXES ---
-  const root = document.querySelector('.fourth-animation-container');
+  const root = document.querySelector(".fourth-animation-container");
   const boxRect = boxEl.getBoundingClientRect();
   const rootRect = root.getBoundingClientRect();
   const phoneRect = phoneEl.getBoundingClientRect();
 
-  const dataPos = boxEl.getAttribute('data-pos');
-  let start = {x:0, y:0}, end = {x:0, y:0}, tJunction = {x:0, y:0};
+  const dataPos = boxEl.getAttribute("data-pos");
+  let start = { x: 0, y: 0 },
+    end = { x: 0, y: 0 },
+    tJunction = { x: 0, y: 0 };
 
   const phoneMargin = 10;
   const horizontalLength = 41;
 
   let targetY;
-  if (dataPos && dataPos.includes('top')) {
+  if (dataPos && dataPos.includes("top")) {
     targetY = phoneRect.top - rootRect.top + phoneRect.height * 0.22;
-  } else if (dataPos && dataPos.includes('bottom')) {
+  } else if (dataPos && dataPos.includes("bottom")) {
     targetY = phoneRect.top - rootRect.top + phoneRect.height * 0.74;
   } else {
     targetY = phoneRect.top - rootRect.top + phoneRect.height / 2;
   }
 
-  if (dataPos && dataPos.startsWith('left')) {
+  if (dataPos && dataPos.startsWith("left")) {
     start.x = boxRect.right - rootRect.left;
-    start.y = boxRect.top - rootRect.top + boxRect.height/2;
+    start.y = boxRect.top - rootRect.top + boxRect.height / 2;
     tJunction.x = start.x + horizontalLength;
     tJunction.y = start.y;
     end.x = phoneRect.left - rootRect.left + phoneMargin;
     end.y = targetY;
-  } else if (dataPos && dataPos.startsWith('right')) {
+  } else if (dataPos && dataPos.startsWith("right")) {
     start.x = boxRect.left - rootRect.left;
-    start.y = boxRect.top - rootRect.top + boxRect.height/2;
+    start.y = boxRect.top - rootRect.top + boxRect.height / 2;
     tJunction.x = start.x - horizontalLength;
     tJunction.y = start.y;
     end.x = phoneRect.right - rootRect.left - phoneMargin;
@@ -177,8 +176,8 @@ function drawFourthConnectorLine(boxEl, phoneEl) {
     start.y = boxRect.top - rootRect.top + boxRect.height / 2;
     end.x = phoneRect.left - rootRect.left + phoneRect.width / 2;
     end.y = phoneRect.top - rootRect.top + phoneRect.height / 2;
-    tJunction.x = (start.x + end.x)/2;
-    tJunction.y = (start.y + end.y)/2;
+    tJunction.x = (start.x + end.x) / 2;
+    tJunction.y = (start.y + end.y) / 2;
   }
 
   const d = `
@@ -186,11 +185,11 @@ function drawFourthConnectorLine(boxEl, phoneEl) {
     L${tJunction.x},${tJunction.y}
     L${tJunction.x},${end.y}
     L${end.x},${end.y}
-  `.replace(/\s+/g, ' ');
+  `.replace(/\s+/g, " ");
 
-  path.setAttribute('d', d);
+  path.setAttribute("d", d);
   path.style.opacity = 1;
-  path.style.transition = 'none';
+  path.style.transition = "none";
   path.style.strokeDasharray = path.getTotalLength();
   path.style.strokeDashoffset = path.getTotalLength();
 }
@@ -207,7 +206,7 @@ function animateFourthOnePath() {
   // Draw the connector line
   drawFourthConnectorLine(box, image);
 
-  const path = document.getElementById('fourth-connector-path');
+  const path = document.getElementById("fourth-connector-path");
   gsap.set(path, { opacity: 1, strokeDashoffset: path.getTotalLength() });
 
   gsap.to(path, {
@@ -230,7 +229,8 @@ function animateFourthOnePath() {
 
       image.src = fourthImages[fourthIndex];
 
-      gsap.fromTo(image,
+      gsap.fromTo(
+        image,
         { opacity: 1, scale: 1 },
         {
           opacity: 0.7,
@@ -239,7 +239,8 @@ function animateFourthOnePath() {
           yoyo: true,
           repeat: 1,
           ease: "power1.inOut",
-        });
+        }
+      );
     },
     onComplete: () => {
       setTimeout(() => {
@@ -261,10 +262,10 @@ function animateFourthOnePath() {
             // Pause before next line
             fourthIndex = (fourthIndex + 1) % boxes.length;
             fourthLoopTimeout = setTimeout(animateFourthOnePath, 1000);
-          }
+          },
         });
       }, 1000);
-    }
+    },
   });
 }
 
@@ -302,59 +303,82 @@ function startFourthAnimation() {
   const mainLength = mainPath.getTotalLength();
 
   // Prepare SVG border & image hidden
-  gsap.set(mainPath, { opacity: 1, strokeDasharray: mainLength, strokeDashoffset: mainLength });
+  gsap.set(mainPath, {
+    opacity: 1,
+    strokeDasharray: mainLength,
+    strokeDashoffset: mainLength,
+  });
   gsap.set(image, { opacity: 0, scale: 0.95 });
 
   // Prepare connector path at correct position, hidden
   drawFourthConnectorLine(firstBox, image);
-  const connectorPath = document.getElementById('fourth-connector-path');
+  const connectorPath = document.getElementById("fourth-connector-path");
   const connectorLength = connectorPath.getTotalLength();
-  gsap.set(connectorPath, { opacity: 1, strokeDasharray: connectorLength, strokeDashoffset: connectorLength });
+  gsap.set(connectorPath, {
+    opacity: 1,
+    strokeDasharray: connectorLength,
+    strokeDashoffset: connectorLength,
+  });
 
-  fourthIntroTimeline = gsap.timeline({
-    delay: 0,
-    onComplete: () => {
-      gsap.to([mainPath, image], { opacity: 0, duration: 0.4 });
-      gsap.set(connectorPath, { opacity: 0, strokeDasharray: 0, strokeDashoffset: 0 });
-      fourthIntroRunning = false;
-      fourthIndex = 1;
-      startFourthTopPathLoop();
-    }
-  })
+  fourthIntroTimeline = gsap
+    .timeline({
+      delay: 0,
+      onComplete: () => {
+        gsap.to([mainPath, image], { opacity: 0, duration: 0.4 });
+        gsap.set(connectorPath, {
+          opacity: 0,
+          strokeDasharray: 0,
+          strokeDashoffset: 0,
+        });
+        fourthIntroRunning = false;
+        fourthIndex = 1;
+        startFourthTopPathLoop();
+      },
+    })
     .to(defaultIcon, { opacity: 0, duration: 0.2 })
     .to(coloredIcon, { opacity: 1, scale: 1.05, duration: 0.4 }, "<")
-    .to(firstBox, {
-      scale: 1.05,
-      boxShadow: "0px 4px 14px rgba(0,0,0,0.1)",
-      backgroundColor: "white",
-      border: "1px solid transparent",
-      duration: 0.4,
-    }, "<")
+    .to(
+      firstBox,
+      {
+        scale: 1.05,
+        boxShadow: "0px 4px 14px rgba(0,0,0,0.1)",
+        backgroundColor: "white",
+        border: "1px solid transparent",
+        duration: 0.4,
+      },
+      "<"
+    )
     .to(connectorPath, {
       strokeDashoffset: 0,
       duration: 2.5,
       ease: "power2.inOut",
       onStart: () => gsap.set(connectorPath, { opacity: 1 }),
     })
-    .fromTo(mainPath,
+    .fromTo(
+      mainPath,
       { strokeDashoffset: mainLength, opacity: 1 },
       { strokeDashoffset: 0, opacity: 1, duration: 1.2, ease: "power2.inOut" },
       "-=1.1"
     )
-    .fromTo(image,
+    .fromTo(
+      image,
       { opacity: 0, scale: 0.95 },
-      { opacity: 1, scale: 1, duration: 0.9, ease: "power2.out" },
+      { opacity: 1, scale: 1, delay: 1, duration: 0.9, ease: "power2.out" },
       "-=1.0"
     )
     .to({}, { duration: 0.25 })
     .to(connectorPath, { opacity: 0, duration: 0.4 })
-    .to(firstBox, {
-      scale: 1,
-      boxShadow: "none",
-      backgroundColor: "#f6f9fd",
-      border: "1px solid #ccc",
-      duration: 0.18
-    }, "<")
+    .to(
+      firstBox,
+      {
+        scale: 1,
+        boxShadow: "none",
+        backgroundColor: "#f6f9fd",
+        border: "1px solid #ccc",
+        duration: 0.18,
+      },
+      "<"
+    )
     .to(coloredIcon, { opacity: 0, scale: 0.9, duration: 0.18 }, "<")
     .to(defaultIcon, { opacity: 1, scale: 1, duration: 0.18 }, "<")
     .to({}, { duration: 0.3 })
@@ -367,10 +391,13 @@ const fourthObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       console.log(
-  "entry.isIntersecting:", entry.isIntersecting,
-  "intersectionRatio:", entry.intersectionRatio,
-  "boundingClientRect:", entry.boundingClientRect
-);
+        "entry.isIntersecting:",
+        entry.isIntersecting,
+        "intersectionRatio:",
+        entry.intersectionRatio,
+        "boundingClientRect:",
+        entry.boundingClientRect
+      );
       if (entry.isIntersecting) {
         if (!fourthAnimationStarted) {
           resetFourthAnimation();
@@ -388,14 +415,13 @@ const fourthObserver = new IntersectionObserver(
   },
   {
     threshold: 0, // only reset if section is 100% out of view
-    rootMargin: "0px"
+    rootMargin: "0px",
   }
 );
 
 if (fourthContainerEl) {
   fourthObserver.observe(fourthContainerEl);
 }
-
 
 window.startFourthAnimation = startFourthAnimation;
 window.resetFourthAnimation = resetFourthAnimation;

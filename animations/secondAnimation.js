@@ -200,6 +200,7 @@ function runSecondIntro() {
         opacity: 1,
         scale: 1,
         duration: 1.2,
+        delay: 1,
         ease: "power2.out",
       },
       "revealPhone"

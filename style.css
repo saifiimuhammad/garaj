@@ -1,4 +1,5 @@
 :root {
+  --amber-600: #f89d00;
   --amber-500: #f59e0b;
   --gray-700: #374151;
   --amber-400: #fbbf24;
@@ -868,6 +869,12 @@ canvas {
   border: none;
   margin-top: 2rem;
   cursor: pointer;
+  transition: color 0.15s ease-out;
+}
+
+.card button:hover {
+  color: var(--amber-500);
+  transition: color 0.15s ease-in;
 }
 
 @media (min-width: 640px) {
